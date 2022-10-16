@@ -17,7 +17,7 @@
          display: inline-block;
          padding: 0.5em;
         }
-        .make_inline,h1,main,hr{
+        .make_inline,h1,main,hr,footer{
             width:90%;
             margin: auto;
         }
@@ -25,24 +25,36 @@
         .menu{
             background-color: navy;
             padding: 0.65rem 0.1rem;
+            position:fixed;
+            width:100%;
         
         }
-        a{
+        .menu-link{
             color: lightgray;
             text-decoration:none;
             font-size: 24px;
             padding: 0.99rem 0.5rem;
         }
-        a:hover{
+        .menu-link:hover{
             margin: 2px;
+            color:white;
             border-width: 0 0 4px;
             border-style: solid;
-            color:red;
+            border-color:red;
         }
         img{
             width:30px;
             height:20px;
         }
+        h1{
+            padding-top: 5rem;
+        }
+        .footer{
+            border-width: 1px 0 0 0;
+            border-style: solid;
+            color:black;
+        }
+        
     </style>
 </head>
 <body>
@@ -50,9 +62,9 @@
         <nav class="menu">
             <ul class="make_inline">
                 <li><img src="logo/logo.jpg" alt="logo"></li>
-                <li ><a href="#">Home</a></li>
-                <li ><a href="Portfolio.html">Portfolio</a></li>
-                <li ><a href="Contact.html">Contact</a></li>
+                <li ><a href="#" class="menu-link">Home</a></li>
+                <li ><a href="Portfolio.html" class="menu-link">Portfolio</a></li>
+                <li ><a href="Contact.html" class="menu-link">Contact</a></li>
             </ul>
     
         </nav>
@@ -66,9 +78,130 @@
             <h2>
                 About Us
             </h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sapiente aliquid dolorem incidunt, fugiat eum iste. </p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ullam quisquam reprehenderit obcaecati dolorem recusandae! Iusto, adipisci repudiandae doloremque corporis nulla nostrum</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eius, expedita, quae recusandae dolore deserunt minima dolores totam beatae dolorem reiciendis perspiciatis voluptatem est? Ea amet nulla accusantium nostrum necessitatibus.</p>
         </section>
+        <section>
+            <h2>
+                Our Vision
+            </h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sapiente aliquid dolorem incidunt, fugiat eum iste.</p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ullam quisquam reprehenderit obcaecati dolorem recusandae! Iusto, adipisci repudiandae doloremque corporis nulla nostrum
+            </p>
+        </section>     
+        <h2>
+            In the news
+        </h2>   
+        <nav>
+            <ul>
+                <li><a href="#article1">NEWS ARTICLE 1</a></li>
+                <li><a href="#article2">NEWS ARTICLE 2</a></li>
+                <li><a href="#article3">NEWS ARTICLE 3</a></li>
+                <li><a href="#article4">NEWS ARTICLE 4</a></li>
+                <li><a href="#article5">NEWS ARTICLE 5</a></li>
+                <li><a href="#article6">NEWS ARTICLE 6</a></li>
+                <li><a href="#article7">NEWS ARTICLE 7</a></li>
+                <li><a href="#article8">NEWS ARTICLE 8</a></li>
+                <li><a href="#article9">NEWS ARTICLE 9</a></li>
+                <li><a href="#article10">NEWS ARTICLE 10</a></li>
+
+            </ul> 
+        </nav>
+        <article id="article1">
+            <h3>
+                New article 1
+            </h3>
+            <p>
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, eius? At, voluptate commodi. Quidem facere ratione sapiente nesciunt quisquam tempora accusantium deleniti obcaecati voluptate doloribus, nihil fugiat, laudantium, similique inventore. 
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <article id="article2">
+            <h3>
+                New article 2
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas dignissimos, nam officia aut expedita quas? Reiciendis laboriosam quas a ex magnam nostrum nulla quibusdam esse? Suscipit assumenda sit vitae cumque!    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <article id="article3">
+            <h3>
+                New article 3
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <article id="article4">
+            <h3>
+                New article 4
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <article id="article5">
+            <h3>
+                New article 5
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <article id="article6">
+            <h3>
+                New article 6
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <article id="article7">
+            <h3>
+                New article 7
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <section id="article8">
+            <h3>
+                New article 8
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </section>
+        <article id="article9">
+            <h3>
+                New article 9
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+        <article id="article10">
+            <h3>
+                New article 10
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus, provident amet autem nulla ipsa totam culpa repellat mollitia, sint aut odio alias, harum itaque quae aliquid ipsum. Harum, asperiores.    
+            </p>
+            <a href="../demo.txt" >Read more</a>
+        </article>
+    </main>
+    <footer class="footer">
+       <p>&copy; example.com</p> 
+    </footer>
+       
     
 </body>
 </html>
