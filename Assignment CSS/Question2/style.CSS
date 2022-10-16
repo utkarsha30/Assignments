@@ -1,0 +1,40 @@
+.panel-primary{
+    border: 1px solid navy;
+    border-radius: 6px;
+}
+
+.panel-primary-header{
+    background-color: navy;
+   border-top-left-radius: 6px;
+   border-top-right-radius: 6px;
+    color:white;    
+    padding:2px 10px;
+}
+.panel-secondary{
+    border: 1px solid olive;
+    border-radius: 6px;
+    margin-top:10px;
+}
+.panel-secondary-header{
+    background-color: olive;
+    padding:2px 10px;
+    border-top-left-radius: 6px;
+   border-top-right-radius: 6px;
+   color:white;
+}
+p{
+    padding:10px;
+    font-weight: bold;
+}
+.panel-error{
+    border: 1px solid crimson;
+    border-radius: 6px;
+    margin-top:10px;
+}
+.panel-error-header{
+    background-color: crimson;
+    padding:2px 10px;
+    border-top-left-radius: 6px;
+   border-top-right-radius: 6px;
+   color:white;
+}
