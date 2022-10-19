@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+}
+.main-body{
+    width:90%;
+    max-width:1280px;
+    margin: 0 auto;
+}
+/*Remove when shifiting to webappcts folder as this styling is provided by normalize*/
+hr{
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
