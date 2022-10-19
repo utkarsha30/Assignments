@@ -1,0 +1,16 @@
+.nav-bar{
+    display:flex;
+    padding:auto;
+}
+.nav-bar-links{
+    display:flex;
+    flex-basis: 70%;
+    
+}
+.nav-bar-userlogin{
+    display:flex;
+    flex-basis: 30%;    
+}
+.nav-bar-userlogin span{
+    color:lightblue;
+}
