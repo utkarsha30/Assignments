@@ -1,0 +1,46 @@
+.calendar {
+    position: relative;
+}
+.calendar-hours {
+    display: flex;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.calendar-hour-value {
+    width: 50px;
+}
+
+.calendar-hour-box {
+    flex-basis: auto;
+    flex-grow: 1;
+    background-color: rgb(35, 165, 209);
+}
+.meeting {
+    position: absolute;
+    background-color: lightgray;
+    left: 20%;
+    right: 10%;
+}
+.meeting-1 {
+    top: 493px;
+    height: 60px;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.5rem;
+    margin: 0;
+}
+.meeting-2{
+    top:733px;
+    height: 60px;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.5rem;
+    margin: 0;
+}
+@media(min-width: 992px){
+    .meeting {
+        position: absolute;
+        background-color: lightgray;
+        left: 10%;
+        right: 6%;
+    }
+
+}
