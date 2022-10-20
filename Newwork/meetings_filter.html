@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Meetings</title>
+    <link rel="stylesheet" href="utils.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="forms.css">
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="meetings.css">
+</head>
+<body>
+    <div class="main-body">
+        <header class="body-heading">
+            <h1>Meetings</h1>
+            <hr class="subsection-hr spacing-hr"/>
+        </header>
+        <div class="subsection">
+            <a href="#" class="active btn">Filter / Search meetings</a>
+            <a href="meetings_addmeetings.html">Add a meeting</a>
+          
+        </div>
+        <hr class="subsection-hr spacing-hr"/>
+        <div class="container">
+            <div class="container-cards form-background">
+                <form class="form-group">
+                    <h2 class="container-card-header">Search for meetings</h2>
+                    <hr class="form-hr"/>
+                    <label for="date-options" class="form-control-label">Date</label>
+                    <select id="date-options" name="date-options" class="form-control">
+                        <option value="">ALL</option>
+                        <option value="Past">PAST</option>
+                        <option value="today">TODAY</option>
+                        <option value="upcoming">UPCOMING</option>
+                    </select>
+                    <label for="search" class="form-control-label">Search for</label>
+                    <textarea name="search" id="search" class="form-control">Search using words which describe the meeting</textarea>
+                    <button class="button-search btn">Search</button>  
+                </form>
+            </div>
+            <div class="meeting-matching">
+                <h2>Meetings matching search criteria</h2>
+                <hr class="subsection-hr"/>
+            </div>
+                <div class="container-cards">
+                    <p><span class="make-title">12 September 2020</span> <span class="subheading">06.00 - 07.00</span></p>
+                    <p class="subheading">Project kickoff</p>
+                    <button class="button-excuse btn">Excuse yourself</button>
+                    <hr class="subsection-hr"/>
+                    <p><span class="text-strong">Attendees:</span> mark@example.com,jane@example.com</p>
+                    <div>
+                        <select class="select-design btn">
+                            <option vlaue="" selected>Select member</option>
+                            <option vlaue="utkarsha@gmail.com">utkarsha@gmail.com</option>
+                            <option vlaue="mansi@gmail.com">mansi@gmail.com</option>
+                            <option vlaue="juee@gmail.com">juee@gmail.com</option>
+                            <option vlaue="prachi@gmail.com">prachi@gmail.com</option>
+                        </select>
+                        <button class="button-add btn">Add</button>
+                    </div>
+                </div>
+                <div class="container-cards">
+                    <p><span class="make-title">12 September 2020</span> <span class="subheading">09.00 - 10.30</span></p>
+                    <p class="subheading">AWS architecture</p>
+                    <button class="button-excuse btn">Excuse yourself</button>
+                    <hr class="subsection-hr"/>
+                    <p><span class="text-strong">Attendees:</span> john@example.com,jane@example.com</p>
+                    <div>
+                        <select class="select-design btn">
+                            <option vlaue="" selected>Select member</option>
+                            <option vlaue="utkarsha@gmail.com">utkarsha@gmail.com</option>
+                            <option vlaue="mansi@gmail.com">mansi@gmail.com</option>
+                            <option vlaue="juee@gmail.com">juee@gmail.com</option>
+                            <option vlaue="prachi@gmail.com">prachi@gmail.com</option>
+                        </select>
+                        <button class="button-add btn">Add</button>
+                    </div>
+                </div>
+            
+        </div>
+
+    </div>
+    
+</body>
+</html>
