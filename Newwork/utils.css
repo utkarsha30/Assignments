@@ -27,3 +27,25 @@
     font-size: 24px;
     font-weight: bolder;
 }
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.d-flex a{
+    text-decoration: none;
+}
+.d-flex ul{
+    list-style-type: none;
+}
+.d-sm-none{
+    display: none;
+}
+@media(min-width: 992px){
+    .d-lg-none{
+        display:none;
+    }
+    .d-sm-none{
+        display: block;
+    }
+}
