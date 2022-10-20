@@ -1,0 +1,51 @@
+.btn{
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+}
+.subheading{
+    color: rgb(82, 78, 78);   
+}
+.text-strong{
+    font-weight: bolder;
+}
+.form-control{
+    width:100%;
+    padding: 10px;
+    margin-top: 20px;
+    border:1px solid lightgray;
+    border-radius: 5px;
+    color: rgb(108, 103, 103);
+    font-weight:lighter;
+}
+.subsection-hr{
+    background-color: lightgray;
+    height: 1.5px;
+    border: 0;
+   }
+.make-title{
+    font-size: 24px;
+    font-weight: bolder;
+}
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.d-flex a{
+    text-decoration: none;
+}
+.d-flex ul{
+    list-style-type: none;
+}
+.d-sm-none{
+    display: none;
+}
+@media(min-width: 992px){
+    .d-lg-none{
+        display:none;
+    }
+    .d-sm-none{
+        display: block;
+    }
+}

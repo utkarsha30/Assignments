@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Meetings</title>
+    <link rel="stylesheet" href="external/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="external/normalize.css">
+    <link rel="stylesheet" href="css/utlils.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/meetings.css">
+</head>
+<body>
+    <div class="main-body">
+        <header class="body-heading">
+            <h1>Meetings</h1>
+            <hr class="subsection-hr spacing-hr" />
+        </header>
+        <div class="subsection">
+            <a href="meetings_filter.html" >Filter / Search meetings</a>
+            <a href="#" class="active btn">Add a meeting</a>
+          
+        </div>
+        <hr class="subsection-hr spacing-hr">
+        <div class="container">
+            <div class="container-cards form-background">
+                <form class="form-group">
+                    <h2 class="container-card-header">Add a new meeting</h2>
+                    <hr class="form-hr"/>
+                    <label for="date" class="form-control-label">Date</label>
+                    <input type="date" name="date" id="date" class="form-control">
+                    <label for="start-time" class="form-control-label">Start time (hh:mm)</label>
+                    <div class="dropdowns-block-inline">
+                        <select id="start-time" name="start-time" class="form-control">
+                            <option value="">Null</option>
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <p>:</p>
+                        <select id="start-time1" name="start-time1" class="form-control">
+                            <option value="">Null</option>
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                    <label for="end-time" class="form-control-label">End time (hh:mm)</label>
+                    <div class="dropdowns-block-inline">
+                        <select id="end-time" name="end-time" class="form-control">
+                            <option value="">Null</option>
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <p>:</p>
+                        <select id="end-time1" name="end-time1" class="form-control">
+                            <option value="">Null</option>
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>    
+                    <label for="description" class="form-control-label">Description</label>
+                    <textarea name="description" id="description" class="form-control">What is agenda of the meeting?</textarea>
+                    <label for="emails" class="form-control-label">EmailIDs of attendees, or team's short</label>
+                    <input type="text" value="john@example.com, @annual-day" id="emails" name="emails" class="form-control">
+                    <p class="tip">Seperate emailids / team short names by commans-team short names always begin with @</p>
+                    <button class="button-search btn">Add meeting</button>  
+                </form>
+            </div>    
+        </div>
+
+    </div>
+    
+</body>
+</html>
