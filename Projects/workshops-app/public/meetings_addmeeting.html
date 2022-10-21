@@ -11,17 +11,44 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/nav1.css">
     <link rel="stylesheet" href="css/meetings.css">
 </head>
 <body>
     <div class="main-body">
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-branding max-width-none">My Meetings</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="calendar.html" class="nav-link"> Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="meetings_filter.html" class="active-link nav-link"> Meetings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="teams.html" class="nav-link"> Teams</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu-left">
+                    <li class="nav-item-right"><p>Hello <span class="highlight">jane.doe@example.com!</span></p></li>
+                    <li class="nav-item-right"><a href="teams_addteam.html" class="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!---main code-->
         <header class="body-heading">
             <h1>Meetings</h1>
             <hr class="subsection-hr spacing-hr" />
         </header>
         <div class="subsection">
             <a href="meetings_filter.html" >Filter / Search meetings</a>
-            <a href="#" class="active btn">Add a meeting</a>
+            <a href="#" class="active-filter btn">Add a meeting</a>
           
         </div>
         <hr class="subsection-hr spacing-hr">
@@ -103,6 +130,8 @@
         </div>
 
     </div>
+    <!---JS-->
+    <script src="/js/nav.js"></script>
     
 </body>
 </html>

@@ -11,18 +11,41 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/nav1.css">
     <link rel="stylesheet" href="css/teams.css">
     
 </head>
 <body>
-    <nav>
-        <div>
-            Calendar
-        </div>
-    </nav>
     <main class="main-body ">
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-branding max-width-none">My Meetings</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="calendar.html" class="nav-link"> Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="meetings_filter.html" class="nav-link"> Meetings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="teams.html" class="active-link nav-link"> Teams</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu-left">
+                    <li class="nav-item-right"><p>Hello <span class="highlight">jane.doe@example.com!</span></p></li>
+                    <li class="nav-item-right"><a href="teams_addteam.html" class="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!----main code-->
         <header><h1>Teams</h1></header>
-        <hr />
+        <hr class="subsection-hr"/>
         <h2 class="subheading">View and edit teams you are part of</h2>
         <div class="container">   
             <div class="container-cards">
@@ -30,7 +53,7 @@
                 <h3>@customer-acquisition</h3>
                 <p class="subheading">Team to come up with strategies to win over the customers by end of FY21</p>
                 <button class="button-excuse btn">Excuse yourself</button>
-                <hr>
+                <hr class="subsection-hr">
                 <p><span class="text-strong">Members:</span> john@example.com,jane@example.com</p>
                 <div>
                     <select class="select-design btn">
@@ -48,7 +71,7 @@
                 <h3>@mern-stack-training</h3>
                 <p class="subheading">Group attending MERN stack training for website revamp project</p>
                 <button class="button-excuse btn">Excuse yourself</button>
-                <hr>
+                <hr class="subsection-hr">
                 <p><span class="text-strong">Members:</span> jane@example.com,mark@example.com</p>
                 <div>
                     <select class="select-design btn">
@@ -67,7 +90,7 @@
                     <input type="text" value="Team name" name="teamName" class="form-control">
                     <input type="text" value="Team short name" name="teamShortName" class="form-control">
                     <textarea name="description" class="form-control">Provide a description for the team</textarea>
-                    <hr>
+                    <hr class="subsection-hr">
                     <p><span class="text-strong">Members:</span> john@example.com,jane@example.com</p>
                     <div>
                         <select class="select-design btn" name="email-options">
@@ -85,6 +108,8 @@
             </div>
         </div>
     </main>
+    <!---JS-->
+    <script src="/js/nav.js"></script>
     
 </body>
 </html>

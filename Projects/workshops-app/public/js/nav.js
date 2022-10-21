@@ -1,9 +1,11 @@
-const toggler = document.querySelector('.menu-toggler');
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
 
-toggler.addEventListener('click',function(){
-    const mainMenuLink = document.querySelectorAll('.menu-link');
-
-    for(let i=0;i< mainMenuLink.length;i++){
-        mainMenuLink[i].classList.toggle('d-sm-none');
-    }
-});
+hamburger.addEventListener("click",()=>{
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+})
+document.querySelectorAll(".nav-link").forEach(n=> n.addEventListener("click",()=>{
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}))
