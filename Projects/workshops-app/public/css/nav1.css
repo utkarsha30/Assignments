@@ -33,6 +33,7 @@
     align-items: center;
     gap: 30px;
 }
+
 .nav-link:hover{
     background-color: rgb(88, 87, 87);
     padding: 20px 10px;
@@ -92,6 +93,7 @@
         display:inline-block;
         position: fixed;
         left: -100%;
+        z-index: 2;
         top:45px;
         margin-left: 20px;
         gap:0;
