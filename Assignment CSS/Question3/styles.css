@@ -1,0 +1,46 @@
+.buttons{
+    padding: 20px 10px;
+    font-size: 24px;
+    
+}
+#buttons-longheadings{
+   
+    width: 90px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.buttons-primary{
+    background-color: navy;
+    color: white;
+    padding: 20px;
+   border-radius: 6px;
+   text-decoration: none;
+   display: inline-block;
+   vertical-align: top;
+}
+.buttons-primary:hover{
+    background-color: lightblue;
+    color: navy;
+}
+.buttons-secondary{
+    background-color: olive;
+    color:white;
+    padding: 20px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+}
+.buttons-secondary:active{
+    background-color: yellow;
+}
+.buttons-error{
+    background-color: crimson;
+    color:white;
+    padding: 20px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+}

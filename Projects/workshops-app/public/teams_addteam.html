@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <link rel="stylesheet" href="external/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="external/normalize.css">
+    <link rel="stylesheet" href="css/utlils.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/nav1.css">
+    <link rel="stylesheet" href="css/teams.css">
+    
+</head>
+<body>
+    <main class="main-body ">
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-branding max-width-none">My Meetings</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="calendar.html" class="nav-link"> Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="meetings_filter.html" class="nav-link"> Meetings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="teams.html" class="active-link nav-link"> Teams</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu-left">
+                    <li class="nav-item-right"><p>Hello <span class="highlight">jane.doe@example.com!</span></p></li>
+                    <li class="nav-item-right"><a href="teams_addteam.html" class="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!----main code-->
+        <header><h1>Teams</h1></header>
+        <hr class="subsection-hr"/>
+        <h2 class="subheading">View and edit teams you are part of</h2>
+        <div class="container">   
+            <div class="container-cards">
+                <h2>Customer acquisition campaign</h2>
+                <h3>@customer-acquisition</h3>
+                <p class="subheading">Team to come up with strategies to win over the customers by end of FY21</p>
+                <button class="button-excuse btn">Excuse yourself</button>
+                <hr class="subsection-hr">
+                <p><span class="text-strong">Members:</span> john@example.com,jane@example.com</p>
+                <div>
+                    <select class="select-design btn">
+                        <option vlaue="" selected>Select member</option>
+                        <option vlaue="utkarsha@gmail.com">utkarsha@gmail.com</option>
+                        <option vlaue="mansi@gmail.com">mansi@gmail.com</option>
+                        <option vlaue="juee@gmail.com">juee@gmail.com</option>
+                        <option vlaue="prachi@gmail.com">prachi@gmail.com</option>
+                    </select>
+                    <button class="button-add btn">Add</button>
+                </div>
+            </div>
+            <div class="container-cards">
+                <h2>MERN stack training</h2>
+                <h3>@mern-stack-training</h3>
+                <p class="subheading">Group attending MERN stack training for website revamp project</p>
+                <button class="button-excuse btn">Excuse yourself</button>
+                <hr class="subsection-hr">
+                <p><span class="text-strong">Members:</span> jane@example.com,mark@example.com</p>
+                <div>
+                    <select class="select-design btn">
+                        <option vlaue="" selected>Select member</option>
+                        <option vlaue="utkarsha@gmail.com">utkarsha@gmail.com</option>
+                        <option vlaue="mansi@gmail.com">mansi@gmail.com</option>
+                        <option vlaue="juee@gmail.com">juee@gmail.com</option>
+                        <option vlaue="prachi@gmail.com">prachi@gmail.com</option>
+                    </select>
+                    <button class="button-add btn">Add</button>
+                </div>
+            </div>
+            
+            <div class="container-cards ">
+                <form class="form-group">
+                    <input type="text" value="Team name" name="teamName" class="form-control">
+                    <input type="text" value="Team short name" name="teamShortName" class="form-control">
+                    <textarea name="description" class="form-control">Provide a description for the team</textarea>
+                    <hr class="subsection-hr">
+                    <p><span class="text-strong">Members:</span> john@example.com,jane@example.com</p>
+                    <div>
+                        <select class="select-design btn" name="email-options">
+                            <option vlaue="" selected>Select member</option>
+                            <option vlaue="utkarsha@gmail.com">utkarsha@gmail.com</option>
+                            <option vlaue="mansi@gmail.com">mansi@gmail.com</option>
+                            <option vlaue="juee@gmail.com">juee@gmail.com</option>
+                            <option vlaue="prachi@gmail.com">prachi@gmail.com</option>
+                        </select>
+                        <button class="button-add btn">Add</button>
+                    </div>
+                    <button class="button-add-submit btn">Add item</button>
+
+                </form>
+            </div>
+        </div>
+    </main>
+    <!---JS-->
+    <script src="/js/nav.js"></script>
+    
+</body>
+</html>

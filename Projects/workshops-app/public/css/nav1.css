@@ -1,0 +1,117 @@
+
+.header{
+    background-color: rgba(130, 128, 128, 0.286);
+    padding:0;
+    margin:10px 0 0 0;
+    max-height: 70px;
+    box-sizing: border-box;
+}
+.header li{
+    list-style: none;
+}
+.header a{
+    color: rgb(61, 59, 59);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+.nav-item-right p{
+    font-size: 1.5rem;
+}
+.highlight{
+    color:rgb(35, 165, 209);
+}
+.navbar{
+    max-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+.nav-menu, .nav-menu-left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link:hover{
+    background-color: rgb(88, 87, 87);
+    padding: 20px 10px;
+    color:black;
+}
+
+.logout:hover{
+    background-color: rgb(88, 87, 87);
+    padding: 20px 10px;
+    color:black;
+}
+.nav-branding{
+    font-size:2rem;
+}
+
+.hamburger{
+    display:none;
+    cursor:pointer;
+}
+.bar{
+    display:block;
+    width:25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(61, 59, 59);
+}
+.max-width-none{
+    display:none;
+}
+
+@media(max-width: 768px)
+{
+    .header{
+        min-height: 50px;
+    }
+    .navbar{
+        padding-top: 10px;
+    }
+    .max-width-none{
+        display: block;
+    }
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        display:inline-block;
+        position: fixed;
+        left: -100%;
+        z-index: 2;
+        top:45px;
+        margin-left: 20px;
+        gap:0;
+        flex-direction: column;
+        background-color: rgb(130, 128, 128);
+        width: 90%;
+        text-align: center;
+        transition:0.3s;
+    }
+    .nav-item{
+        margin: 16px 0;
+    }
+    .nav-menu.active{
+        left:0;
+    }
+    .nav-menu-left{
+        display: none;
+    }
+      
+    
+}

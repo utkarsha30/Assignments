@@ -1,0 +1,87 @@
+.container{
+    justify-content: space-evenly;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.form-background{
+    /*background-color: rgb(35, 165, 209);*/
+    background-color:  rgb(35, 165, 209);
+    
+}
+.container-card-header{
+    color:white;
+}
+.form-control{
+    margin-top: 10px;
+}
+.form-control-label{
+    color:black;
+    display: block;
+    width: 100%;
+}
+.button-search{
+    margin-top: 10px;
+    background-color: rgb(44, 135, 145);
+    color:white;
+}
+.card-title{
+    display:inline;
+}
+.button-excuse{
+    margin-bottom: 7px;
+}
+.subheading {
+    margin-bottom: 8px;
+}
+.meeting-matching{
+    display: block;
+    width: 100%;
+}
+h1{
+    padding-left: 30px;
+}
+#h1-hr{
+    width:95%;
+    justify-content: space-evenly;
+    height:0;
+    
+}
+.subsection{
+    padding-left: 30px;
+    margin-top: 20px;
+}
+.subsection a{
+    display: block-inline;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.active-filter{
+    color:rgb(82, 78, 78);
+    width:100%;
+    padding: 10px;
+    margin-top: 20px;
+    border:1px solid lightgray;
+    border-bottom:1px solid white;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.tip{
+    color:white;
+}
+.dropdowns-block-inline p{
+    display:inline;
+}
+.dropdowns-block-inline .form-control{
+    width: 70px;
+}
+.subsection-hr{
+    margin-top: 0.56rem;
+}
+.spacing-hr{
+    margin-left: 27px;
+    margin-right: 27px;
+}
