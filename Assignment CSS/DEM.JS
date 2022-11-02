@@ -61,7 +61,15 @@ const persons = [
 ];
 
 
-console.log(persons.filter(item => item.name[0] <= 'C'));
-const names = persons.map(item =>item.name);
-console.log(names);
+/*console.log(persons.filter(item => item.name[0] <= 'C'));
+const names = persons.map(item =>item.name);*/
 
+//persons.forEach(items=> items.age++);
+console.log(persons.reduce((acc,item)=>Math.max(acc,item.age),0));
+
+
+console.log(persons.reduce((acc,item)=>{
+    if(item.age>acc)
+        acc=item.age;
+    return acc;
+},0));
