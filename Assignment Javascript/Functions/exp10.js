@@ -1,4 +1,4 @@
-const addTo =(x) => (y) =>x+y;
+const addTo =x=> y=>x+y;
 const addTo10 = addTo(10);
 console.log(addTo10(5));
 console.log(addTo10(7));
