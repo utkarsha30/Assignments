@@ -1,23 +1,19 @@
-const datePicker = document.getElementById('date-picker');
-const dayPicker = document.getElementById('day-picker');
-const currentDate = new Date();
-const displayDate =()=>{
-     const months =['January', 'February','March','April','May', 'June', 'July','August', 'September', 'October','November','December'];;
-     
-     const dd = currentDate.getDate();
-     const mm = months[currentDate.getMonth()];
-     const yyy = currentDate.getFullYear();
-     const finalDate = `${dd} ${mm} ${yyy}`;
-     return finalDate;
-}
-datePicker.innerHTML = displayDate();
+const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzaGlyc2FnYXJAZ21haWwuY29tIiwidXNlcklkIjoiNjM2ZTRmM2Q4ZmM0NTYwMDE1OTA4Y2E4IiwiaWF0IjoxNjY4MjY2NTc4LCJleHAiOjE2NjgzNTI5Nzh9.cjXAkALdrh0fRMYqR2UpDqmvDH4olvRcBJMjodxGKnM';
+(async()=>{
+    try{
+        const response = await fetch( `https://mymeetingsapp.herokuapp.com/api/calendar?date=2020-10-28`,{
+            method: 'GET',
+            header:{
+                'Authorization': '{{key}}'
+            }
+        });
+        if(!response.ok){
+            throw new Error(response.statusText);
+        }
 
-const displayDay =()=>{
-    const day = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
-    const requiredDate = currentDate.getDay();
-    const dayResult= day[requiredDate];
-    return dayResult;
-    
-}
-    
-   dayPicker.innerHTML = displayDay();
+        const workshop = await response.json();
+        console.log(workshop);
+    }catch(error){
+        alert(error.message);
+    }    
+})();
