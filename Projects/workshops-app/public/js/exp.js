@@ -1,9 +1,10 @@
+
 const datePicker = document.getElementById('date-picker');
 const dayPicker = document.getElementById('day-picker');
 const customDatePicker = document.getElementById('date-select');
 const currentDate = new Date();
 const months =['January', 'February','March','April','May', 'June', 'July','August', 'September', 'October','November','December'];  
-const day = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+const day = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 
 const defaultDateDisplay =(setDate) => {
     const dd = setDate.getDate();
@@ -22,9 +23,10 @@ const getDate = (setDate) =>{
 }
 
 const dayDisplay = (setDay) =>{    
-    const requiredDate = setDay.getDay(); 
-    const dayResult= day[requiredDate-1];
-    console.log(dayResult);
+    const requiredDate = setDay.getDay();
+   // console.log(requiredDate); 
+    const dayResult= day[requiredDate];
+   // console.log(dayResult);
     return dayResult;
 }
 
