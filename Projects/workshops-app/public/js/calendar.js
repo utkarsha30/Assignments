@@ -1,6 +1,6 @@
 
 
-const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzaGlyc2FnYXJAZ21haWwuY29tIiwidXNlcklkIjoiNjM2ZTRmM2Q4ZmM0NTYwMDE1OTA4Y2E4IiwiaWF0IjoxNjY4Mjc5NzcxLCJleHAiOjE2NjgzNjYxNzF9.KeleG-z-fIyg1jFSV32Y6odYWS97U7A0jrtgi6EQZxk"; 
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzaGlyc2FnYXJAZ21haWwuY29tIiwidXNlcklkIjoiNjM2ZTRmM2Q4ZmM0NTYwMDE1OTA4Y2E4IiwiaWF0IjoxNjY4MzY4OTg1LCJleHAiOjE2Njg0NTUzODV9.EzK0l-BiSd9KAX18MMF0HXbsG3PFgyV18abmdHkPPJI";
 let str =''
 const meetingSchedule = document.getElementById('meeting-3');
 const showMeetings = meetings => {
@@ -38,7 +38,7 @@ const fetchAndShowWorkshops =async(dateFilter)=>{
         showMeetings(meetings);
         
       
-        
+          
        // console.log(meetings);
     }catch(error){
         alert(error.message);
@@ -49,5 +49,6 @@ const fetchAndShowWorkshops =async(dateFilter)=>{
 //     fetchAndShowWorkshops();
 // });
 export{
-    fetchAndShowWorkshops
+    fetchAndShowWorkshops,
+    key
 }

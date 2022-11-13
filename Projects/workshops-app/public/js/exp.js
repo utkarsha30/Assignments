@@ -1,18 +1,12 @@
 import { fetchAndShowWorkshops } from "../js/calendar.js";
+import {defaultDateDisplay,months} from "../js/services/dateConvert.js";
 const datePicker = document.getElementById('date-picker');
 const dayPicker = document.getElementById('day-picker');
 const customDatePicker = document.getElementById('date-select');
 const currentDate = new Date();
-const months =['January', 'February','March','April','May', 'June', 'July','August', 'September', 'October','November','December'];  
 const day = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 
-const defaultDateDisplay =(setDate) => {
-    const dd = setDate.getDate();
-    const mm = months[setDate.getMonth()];
-    const yyy = setDate.getFullYear();
-    const finalDate = `${dd} ${mm} ${yyy}`;
-    return finalDate;
-}
+
 //fetching date from left side to show in date input 
 const getDate = (setDate) =>{
     const dd= setDate.getDate();
@@ -21,7 +15,7 @@ const getDate = (setDate) =>{
     const finalDate = `${yyy}-${mm}-${dd}`;
     return finalDate;
 }
-console.log(getDate);
+//console.log(getDate);
 const dayDisplay = (setDay) =>{    
     const requiredDate = setDay.getDay();
    // console.log(requiredDate); 
@@ -35,6 +29,7 @@ document.addEventListener('DOMContentLoaded',function(){
     dayPicker.innerHTML = dayDisplay(currentDate);
     customDatePicker.value = getDate(currentDate);
     fetchAndShowWorkshops(getDate(currentDate));
+    
 })
 
 customDatePicker.addEventListener('change',setDate);
@@ -47,5 +42,6 @@ function setDate(){
     console.log(dateFilter);
    fetchAndShowWorkshops(dateFilter);
 }
+
 
 
