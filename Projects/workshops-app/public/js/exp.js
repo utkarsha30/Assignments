@@ -1,4 +1,4 @@
-
+import { fetchAndShowWorkshops } from "../js/calendar.js";
 const datePicker = document.getElementById('date-picker');
 const dayPicker = document.getElementById('day-picker');
 const customDatePicker = document.getElementById('date-select');
@@ -21,7 +21,7 @@ const getDate = (setDate) =>{
     const finalDate = `${yyy}-${mm}-${dd}`;
     return finalDate;
 }
-
+console.log(getDate);
 const dayDisplay = (setDay) =>{    
     const requiredDate = setDay.getDay();
    // console.log(requiredDate); 
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded',function(){
     datePicker.innerHTML = defaultDateDisplay(currentDate);
     dayPicker.innerHTML = dayDisplay(currentDate);
     customDatePicker.value = getDate(currentDate);
+    fetchAndShowWorkshops(getDate(currentDate));
 })
 
 customDatePicker.addEventListener('change',setDate);
@@ -42,6 +43,9 @@ function setDate(){
     let newDate =new Date(customDatePicker.value);
     datePicker.innerHTML = defaultDateDisplay(newDate);
     dayPicker.innerHTML = dayDisplay(newDate);
+    const dateFilter = getDate(newDate);
+    console.log(dateFilter);
+   fetchAndShowWorkshops(dateFilter);
 }
 
 
