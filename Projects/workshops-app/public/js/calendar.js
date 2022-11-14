@@ -1,4 +1,4 @@
-
+import { fetchAndShow } from "../js/services/getRequest.js";
 
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzaGlyc2FnYXJAZ21haWwuY29tIiwidXNlcklkIjoiNjM2ZTRmM2Q4ZmM0NTYwMDE1OTA4Y2E4IiwiaWF0IjoxNjY4MzY4OTg1LCJleHAiOjE2Njg0NTUzODV9.EzK0l-BiSd9KAX18MMF0HXbsG3PFgyV18abmdHkPPJI";
 let str =''
@@ -20,29 +20,12 @@ const showMeetings = meetings => {
    
 }
 const fetchAndShowWorkshops =async(dateFilter)=>{
-    try{
-        const BASE_URL='https://mymeetingsapp.herokuapp.com/api/calendar';
-         const url = BASE_URL+'?date='+dateFilter;
-
-        const response = await fetch(url,{
-            method: 'GET',
-            headers:{
-                'Authorization': key
-            }
-        });
-        if(!response.ok){
-            throw new Error(response.statusText);
-        }
-        const meetings = await response.json();
+    
+         const searchParameter = 'date='+dateFilter;
+        const meetings = await fetchAndShow('calendar',searchParameter);
        
         showMeetings(meetings);
-        
-      
-          
-       // console.log(meetings);
-    }catch(error){
-        alert(error.message);
-    }    
+ 
 };
 // document.addEventListener( 'DOMContentLoaded', function() {
 //     // on page load, we need to fetch and show

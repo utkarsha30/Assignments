@@ -1,14 +1,25 @@
-import { key } from "../js/calendar.js";
 import {defaultDateDisplay,months} from "../js/services/dateConvert.js";
+import{ fetchAndShowRegisteredUsers  } from "../js/services/registeredUsers.js";
+import { fetchAndShow } from "../js/services/getRequest.js";
+import { removeFromMeeting } from "../js/services/excuseYourself.js";
 const dateoption = document.getElementById('date-options');
-let str =''
+let str =`<h2>Meetings matching search criteria</h2>
+<hr class="subsection-hr"/>`;
 const container = document.querySelector('.meeting-matching');
-
-const showMeetings = meetings => {
+const showNothing = ()=>{
+    container.innerHTML = str;
+}
+const showMeetings = async(meetings) => {
     let str1='';
     let str2 = '';
     let str3 ='';
+    let str4 ='';
     let res = '';
+    let user1= '';
+    container.innerHTML = str+res;
+    const registeredUsers = await fetchAndShowRegisteredUsers();
+    
+    //console.log('Users',registeredUsres)
     meetings.forEach(meeting=>{
         
        // console.log(defaultDateDisplay(formatDate));
@@ -16,56 +27,56 @@ const showMeetings = meetings => {
        ` <div class="container-cards" id="meetings-card">
        <p><span class="make-title">${defaultDateDisplay(new Date(meeting.date))}</span> <span class="subheading">${meeting.startTime.hours}:${meeting.startTime.minutes}  - ${meeting.endTime.hours}: ${meeting.endTime.minutes}</span></p>
         <p class="subheading">${meeting.name}</p>
-        <button class="button-excuse btn">Excuse yourself</button>
+        <button class="button-excuse btn" >Excuse yourself</button>
         <hr class="subsection-hr"/>`;
         
         meeting.attendees.forEach(attendee=> {str2 += ` ${attendee.email} `});
-        str3 =`<div>
-            <select class="select-design btn">
-                <option vlaue="" selected>Select member</option>
-                <option vlaue="utkarsha@gmail.com">utkarsha@gmail.com</option>
-                <option vlaue="mansi@gmail.com">mansi@gmail.com</option>
-                <option vlaue="juee@gmail.com">juee@gmail.com</option>
-                <option vlaue="prachi@gmail.com">prachi@gmail.com</option>
-            </select>
-            <button class="button-add btn">Add</button>
-        </div>
-        </div>`;
-        res +=`${str1} <p><span class="text-strong">Attendees:</span> ${str2} </p> ${str3}`;
-        str2='';
-    });
-    container.innerHTML += res;
-
-   
-}
-const fetchAndShowWorkshops =async(queryParameter)=>{
-    try{
-        const BASE_URL='https://mymeetingsapp.herokuapp.com/api/meetings';
-         const url = BASE_URL+'?period='+queryParameter;
-
-        const response = await fetch(url,{
-            method: 'GET',
-            headers:{
-                'Authorization': key
-            }
-        });
-        if(!response.ok){
-            throw new Error(response.statusText);
-        }
-        const meetings = await response.json();
-       // meetings.forEach(i=>console.log(i.date));
-       
-        showMeetings(meetings);
         
+        str3 =`</div>`;
+
+        
+        res +=`${str1} <p><span class="text-strong">Attendees:</span> ${str2} </p> ${registeredUsers} ${str3} `;
+        str2='';
+    });    
+    container.innerHTML = str+res; 
+
+    const excuse = document.querySelectorAll('.button-excuse');
+    excuse.forEach(
+        (button,index)=>{
+            button.addEventListener('click', function(event){
+               const btn = event.target;
+                const card = btn.closest('.container-cards');
+                console.log(card);
+                const actionParameter = 'action=remove_attendee';
+                const meeting_id =meetings[index]._id;
+              removeFromMeeting('meetings/',meeting_id,actionParameter);
+              card.remove();
+            })
+        }
+    )
     
-          
-       // console.log(meetings);
-    }catch(error){
-        alert(error.message);
-    }    
+    
+}
+const fetchAndShowMeetings =async(queryParameter)=>{
+    const searchParameter ='period='+queryParameter;
+    const meetingsData = await fetchAndShow('meetings',searchParameter);  
+   // console.log('meetings returned data',meetingsData);
+    if(meetingsData.length ===0)
+        showNothing();
+    showMeetings(meetingsData);  
+    
+    
+    
 };
 
-document.addEventListener('DOMContentLoaded',function(){
-    const queryParameter = dateoption.value;
-    fetchAndShowWorkshops(queryParameter);
+
+document.addEventListener('DOMContentLoaded',function(event){
+    fetchAndShowMeetings('all');
 });
+dateoption.addEventListener('change',showMeetingsByPeriod);
+function showMeetingsByPeriod(){
+    let queryParameter = dateoption.value;
+  //  console.log(queryParameter);
+    fetchAndShowMeetings(queryParameter);
+    
+}
