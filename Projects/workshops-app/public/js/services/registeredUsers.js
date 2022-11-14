@@ -3,7 +3,7 @@ let user1= '';
 let str1='';
 let str2 = '';
 let res = '';
-
+let registeredUsers='';
 
 const fetchAndShowRegisteredUsers =async()=>{
     try{
@@ -17,7 +17,7 @@ const fetchAndShowRegisteredUsers =async()=>{
         if(!response.ok){
             throw new Error(response.statusText);
         }
-        const registeredUsers = await response.json();
+        registeredUsers = await response.json();
       //  registeredUsers.forEach(i=>console.log(i.email));
        // console.log(registeredUsers.length);
        return showRegisteredUsers(registeredUsers);
@@ -26,6 +26,17 @@ const fetchAndShowRegisteredUsers =async()=>{
         alert(error.message);
     }    
 };
+const getUserId=(userEmail)=>{
+  //  console.log(userEmail);
+    let returnId='';
+    registeredUsers.forEach(user=>{
+        
+        if(user.email === userEmail)
+            returnId = user._id;   
+    } )
+    //console.log("USerID:",returnId);
+    return returnId;
+}
 function showRegisteredUsers(registeredUsers) {
     let selectBox = document.getElementById("select-design");
     str1 =`<div>
@@ -39,9 +50,14 @@ function showRegisteredUsers(registeredUsers) {
         </div>`;
 
         res = `${str1} ${user1} ${str2}`;
+        
+        
         return res;
+
+       
 }
 
 export{
-    fetchAndShowRegisteredUsers 
+    fetchAndShowRegisteredUsers,
+    getUserId
 }

@@ -1,6 +1,6 @@
 import { fetchAndShow } from "../js/services/getRequest.js";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzaGlyc2FnYXJAZ21haWwuY29tIiwidXNlcklkIjoiNjM2ZTRmM2Q4ZmM0NTYwMDE1OTA4Y2E4IiwiaWF0IjoxNjY4NDU3MTI0LCJleHAiOjE2Njg1NDM1MjR9.bfRCAuGq3xCSTIXdrVCOze1Ltq4Sk4IS0YqnwQB9EyA";
 
-const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzaGlyc2FnYXJAZ21haWwuY29tIiwidXNlcklkIjoiNjM2ZTRmM2Q4ZmM0NTYwMDE1OTA4Y2E4IiwiaWF0IjoxNjY4MzY4OTg1LCJleHAiOjE2Njg0NTUzODV9.EzK0l-BiSd9KAX18MMF0HXbsG3PFgyV18abmdHkPPJI";
 let str =''
 const meetingSchedule = document.getElementById('meeting-3');
 const showMeetings = meetings => {
@@ -21,7 +21,7 @@ const showMeetings = meetings => {
 }
 const fetchAndShowWorkshops =async(dateFilter)=>{
     
-         const searchParameter = 'date='+dateFilter;
+         const searchParameter = '?date='+dateFilter;
         const meetings = await fetchAndShow('calendar',searchParameter);
        
         showMeetings(meetings);
