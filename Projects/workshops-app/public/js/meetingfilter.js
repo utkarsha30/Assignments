@@ -44,25 +44,21 @@ const showMeetings = async(meetings) => {
     container.innerHTML = str+res; 
 
     const addUser = document.querySelectorAll('.button-add');
-   
+    //let selectedUser = document.querySelectorAll('.select-design');
         addUser.forEach(
             (button,index )=>{
                 button.addEventListener('click',function(event){
-                   
-                   // const btn = event.target;
-                    //console.log(btn);
-                   // console.log('email',selectedUser[index].value);
-                    let selectedUser = document.getElementById('select-design')[index];
-                    const userId =getUserId(selectedUser.value);
+                    const btn = event.target;
+                    const closestCard = btn.closest('.container-cards');
+                    let selectedUser = closestCard.querySelector('.select-design');
+                   const userId =getUserId(selectedUser.value);
                     const meetingId = meetings[index]._id;
-                    console.log('userid',userId);
-                    console.log('meetingid',meetingId);
                     const addParameters ='action=add_attendee&userId=';
-                    AddNewUser('meetings/',meetingId,addParameters,userId);
-                   
+                   let attendees= closestCard.querySelector('.attendees');
+                   AddNewUser('meetings/',meetingId,addParameters,userId);
+                    attendees.append(`${selectedUser.value}`);   
                 })
-            }
-            
+            }   
         );
 
     const excuse = document.querySelectorAll('.button-excuse');

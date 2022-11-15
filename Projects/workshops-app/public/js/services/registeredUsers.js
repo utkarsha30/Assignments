@@ -40,7 +40,7 @@ const getUserId=(userEmail)=>{
 function showRegisteredUsers(registeredUsers) {
     let selectBox = document.getElementById("select-design");
     str1 =`<div>
-        <select class="select-design btn" id="select-design">
+        <select class="select-design btn" >
                 <option value="" selected>Select member</option>`;
 
                 registeredUsers.forEach(user=> {
