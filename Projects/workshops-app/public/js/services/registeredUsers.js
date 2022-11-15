@@ -38,7 +38,6 @@ const getUserId=(userEmail)=>{
     return returnId;
 }
 function showRegisteredUsers(registeredUsers) {
-    let selectBox = document.getElementById("select-design");
     str1 =`<div>
         <select class="select-design btn" >
                 <option value="" selected>Select member</option>`;
