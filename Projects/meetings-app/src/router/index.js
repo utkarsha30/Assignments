@@ -1,6 +1,8 @@
 import Router from 'vue-router';
 import MeetingsCalendar from '@/components/pages/MeetingsCalendar.vue';
-import MeetingsList from '@/components/pages/meetings/Meetingslist.vue';
+import MeetingsMain from '@/components/pages/meetings/MeetingsMain.vue';
+import MeetingsList from '@/components/pages/meetings/MeetingsList.vue';
+import MeetingsListByDate from '@/components/pages/meetings/MeetingsListByDate';
 const router = new Router({
     mode: 'history',
     routes : [
@@ -10,9 +12,23 @@ const router = new Router({
             component: MeetingsCalendar
         },
         {
-            name: 'meetings-list',
+            name: 'meetings-main',
             path:'/meetings',
-            component: MeetingsList
+            component: MeetingsMain,
+            children :[
+                {
+                    name: 'meetings-list',
+                    path: '',
+                    component: MeetingsList,
+                    children :[
+                        {
+                            name:'meetings-list-by-date',
+                            path:'',
+                            component: MeetingsListByDate
+                        }   
+                    ]
+                }
+            ]
         }
     ]
 
