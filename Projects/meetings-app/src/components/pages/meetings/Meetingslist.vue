@@ -17,7 +17,7 @@
                 <label for="meetingsDescription"  class="blockquote" >Search for</label>
                 <textarea class="form-control" name="meetingsDescription" id="meetingsDescription" placeholder="Search using words which describe the meeting"></textarea>
             </div>
-            <button type="submit"  class="btn btn-primary">Search</button>
+            <button type="submit" @click="filter(dateSelect)" class="btn btn-primary">Search</button>
      </div>
   </b-card>
   <div class="body-heading mt-4">
@@ -36,12 +36,11 @@
     <div v-if="!loading && !error && meetings.length !== 0">
         <div v-for="meeting in meetings" :key="meeting._id">
             <router-link
-            :to="{ name: 'meetings-list-by-date'}"
+            :to="{ name: 'meetings-card'}"
                             exact-active-class="active"
-                            class="mr-3" >
-            <MeetingsListByDate :meeting="meeting" />
+                            class="mr-3 " >
             </router-link>
-           
+        <router-view :meeting="meeting" ></router-view>   
         </div>
     </div>
   </div>
@@ -49,14 +48,13 @@
 </template>
 
 <script>
-import {getMeetings} from '@/service/meetingsPath'
-import MeetingsListByDate from '@/components/pages/meetings/MeetingsListByDate.vue'
+import {getMeetings} from '@/service/meeting'
+//import MeetingsListByDate from '@/components/pages/meetings/MeetingsListByDate.vue'
 export default {
-    
     name: 'MeetingsList',
-    components:{
-        MeetingsListByDate 
-     },
+    // components:{
+    //     MeetingsListByDate 
+    //  },
     data(){
         return {
             meetings:[],
@@ -66,14 +64,29 @@ export default {
         }
     },
     methods: {
-       
+       async filter(dateSelect){
+            console.log(dateSelect);
+            try{
+                const meetings = await getMeetings(dateSelect);
+                this.meetings = meetings;
+            }
+            catch(error){
+                this.error = error;
+            }
+            finally{
+                this.loading = false;
+            }
+       },
+       async updateMeeting( meeting ) {
+            this.meetings.push( meeting );
+        }
     },
     async mounted(){
         
-        //console.log(this.dateSelect);
+        console.log(this.dateSelect);
         this.loading = true;
         try{
-            const meetings = await getMeetings();
+            const meetings = await getMeetings(this.dateSelect);
             this.meetings = meetings;
         }
         catch(error){

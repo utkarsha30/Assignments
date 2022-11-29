@@ -6,8 +6,8 @@
     </div>
     <div>
       <b-nav tabs>
-        <b-nav-item active>Filter/search Meetings</b-nav-item>
-        <b-nav-item>Add a meeting</b-nav-item>
+        <b-nav-item  active to="/meetings">Filter/search Meetings</b-nav-item>
+        <b-nav-item   to="/meetings/add">Add a meeting</b-nav-item>
       </b-nav>
   </div>
   <div>
@@ -24,7 +24,12 @@
 <script>
 
 export default {
-    name:'MeetingsMain'
+    name:'MeetingsMain',
+    data(){
+      return {
+         
+      }
+    }
 
 }
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div>
-
         <b-card  class="mb-3" >
             <b-card-title>{{meeting.name}} <span class="small">{{meeting.startTime.hours}} : {{meeting.startTime.minutes}} - {{meeting.endTime.hours}}: {{meeting.endTime.minutes}} </span></b-card-title>
             <b-card-sub-title >{{meeting.description}}</b-card-sub-title>
@@ -23,10 +22,10 @@
 
 <script>
 export default {
-    name: 'MeetingsListByDate',
+    name: 'MeetingsCard',
     props:{
         meeting:{
-            type:object,
+            type:Object,
             required : true
         }  
     }   
