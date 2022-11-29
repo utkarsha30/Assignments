@@ -1,6 +1,6 @@
 <template>
   <div>
-        <b-card  class="mb-3" >
+        <b-card  class="mb-3 extra-css" >
             <b-card-title>{{meeting.name}} <span class="small">{{meeting.startTime.hours}} : {{meeting.startTime.minutes}} - {{meeting.endTime.hours}}: {{meeting.endTime.minutes}} </span></b-card-title>
             <b-card-sub-title >{{meeting.description}}</b-card-sub-title>
             <b-button variant="danger" class="mt-3">Excuse yourself</b-button>
@@ -30,9 +30,11 @@ export default {
         }  
     }   
 }
-</script>
+</script >
 
-<style>
-
+<style scoped>
+.extra-css{
+    box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+}
 
 </style>

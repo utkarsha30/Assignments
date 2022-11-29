@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card   bg-variant="info"  text-variant="black">
+    <b-card class="extra-css"  bg-variant="info"  text-variant="black">
         <b-card-title  class="title-font-color">Search for Meetings</b-card-title>
      <hr />
      <div class="card-body">
@@ -40,7 +40,7 @@
                             exact-active-class="active"
                             class="mr-3 " >
             </router-link>
-        <router-view :meeting="meeting" ></router-view>   
+        <router-view :meeting="meeting"  ></router-view>   
         </div>
     </div>
   </div>
@@ -77,9 +77,9 @@ export default {
                 this.loading = false;
             }
        },
-       async updateMeeting( meeting ) {
+      /* async updateMeeting( meeting ) {
             this.meetings.push( meeting );
-        }
+        }*/
     },
     async mounted(){
         
@@ -102,6 +102,9 @@ export default {
 <style scoped>
 .title-font-color{
     color:white;
+}
+.extra-css{
+    box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
 }
 
 </style>
