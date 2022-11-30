@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <b-card  class="w-100 p-3 my-3 d-flex flex-column justify-content-between " >
+            <b-card-title>{{team.name}}<br /><small>{{team.shortName}}</small></b-card-title>
+            <b-card-sub-title >{{team.description}}</b-card-sub-title>
+            <b-button variant="danger" class="mt-3">Excuse yourself</b-button>
+            <hr />
+            <p><span class="font-weight-bold">Members :</span><span v-for="member in team.members" :key="member.userId"> {{member.email}}</span></p>
+            <div>
+                <select name="meetingsMembers" id="meetingsMembers" class="custom-select w-50">
+                        <option selected value="">Select Members</option>
+                        <option value="past">PAST</option>
+                        <option value="today">TODAY</option>
+                        <option value="upcoming">UPCOMING</option>
+                    </select>
+                <button class="btn btn-primary ml-2" >Add</button>
+            </div>
+        </b-card>
+  </div>
+</template>
+
+<script>
+export default {
+    name: 'TemasCard',
+    props:{
+        team:{
+            type:Object,
+            required : true
+        }  
+    }
+}
+</script>
+
+<style>
+
+</style>

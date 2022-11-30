@@ -5,26 +5,35 @@
       <hr />
     </div>
     <div>
-      <b-nav tabs>
-        <b-nav-item  active to="/meetings">Filter/search Meetings</b-nav-item>
-        <b-nav-item   to="/meetings/add">Add a meeting</b-nav-item>
-      </b-nav>
+      <b-tabs content-class="mt-3">
+       <!--- <b-nav-item  to="/meetings">Filter/search Meetings</b-nav-item>
+        <b-nav-item   to="/meetings/add">Add a meeting</b-nav-item>-->
+        <b-tab title="Filter/search Meetings" active>
+          <meetings-list></meetings-list>  
+        </b-tab>
+        <b-tab title="Add a meeting" >
+          <meetings-add></meetings-add>
+       </b-tab>
+      </b-tabs>
   </div>
   <div>
-    <router-link
-      :to="{ name: 'meetings-list'}"
-                    class="mr-3"
-                    exact-active-class="active">
-    </router-link>
-    <router-view></router-view>
+    
+    
   </div>
   </div>
 </template>
 
 <script>
 
+import MeetingsList from '@/components/pages/meetings/MeetingsList.vue';
+import MeetingsAdd from './MeetingsAdd.vue';
 export default {
     name:'MeetingsMain',
+    components:{
+      MeetingsList,
+      MeetingsAdd
+
+    },
     data(){
       return {
          
@@ -36,4 +45,4 @@ export default {
 
 <style scoped>
 
-</style>
+</style>MeetingsAdd

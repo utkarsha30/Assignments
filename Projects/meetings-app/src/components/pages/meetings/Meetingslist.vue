@@ -25,36 +25,33 @@
       <hr />
     </div>
     <div class="d-flex justify-content-center" v-if="loading">
-        <div class="spinner-border" role="status">
+        <div class="spinner-border text-primary" role="status">
                 <span class="sr-only">Loading...</span>
         </div>
     </div>
     <div class="alert alert-danger" role="alert" v-if="error">
         {{error.message}}
     </div>
-  <div>
+
     <div v-if="!loading && !error && meetings.length !== 0">
         <div v-for="meeting in meetings" :key="meeting._id">
-            <router-link
-            :to="{ name: 'meetings-card'}"
-                            exact-active-class="active"
-                            class="mr-3 " >
-            </router-link>
-        <router-view :meeting="meeting"  ></router-view>   
+            <meetings-card :meeting="meeting"> </meetings-card>
+        
         </div>
     </div>
-  </div>
+  
   </div>
 </template>
 
 <script>
 import {getMeetings} from '@/service/meeting'
+import MeetingsCard from './MeetingsCard.vue'
 //import MeetingsListByDate from '@/components/pages/meetings/MeetingsListByDate.vue'
 export default {
     name: 'MeetingsList',
-    // components:{
-    //     MeetingsListByDate 
-    //  },
+     components:{
+       MeetingsCard 
+      },
     data(){
         return {
             meetings:[],

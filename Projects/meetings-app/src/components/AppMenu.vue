@@ -9,7 +9,7 @@
        
         <b-nav-item to="/">Calendar</b-nav-item>
         <b-nav-item to="/meetings" >Meetings</b-nav-item>
-        <b-nav-item href="#" >Teams</b-nav-item>
+        <b-nav-item href="/teams" >Teams</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
