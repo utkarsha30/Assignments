@@ -13,23 +13,33 @@
     <div class="alert alert-danger" role="alert" v-if="error">
             {{ error.message }}
     </div> 
-    <div class="row" v-if="!loading && !error && teams.length !== 0">
-        <div
-            class="col-12 col-sm-6 col-lg-4 d-flex "
-            v-for="team in teams"
-            :key="team._id">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row" v-if="!loading && !error && teams.length !== 0">
+                <div
+                    class="col-12 col-sm-12 col-lg-6 d-flex "
+                    v-for="team in teams"
+                    :key="team._id">
 
-                <router-view :team="team"></router-view>
-            
+                        <router-view :team="team"></router-view>
+                    
+                </div>
+                <!--col-sm-8 col-sm-4  -->
+            </div>
         </div>
-         
+        <div class="col-sm-4"> 
+            <teams-add></teams-add>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
 import {getTeams} from '@/service/teams'
+import TeamsAdd from './TeamsAdd.vue';
+
 export default {
+  components: { TeamsAdd },
     name:'TeamsList',
     data(){
         return {

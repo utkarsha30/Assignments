@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card  class="w-100 p-3 my-3 d-flex flex-column justify-content-between " >
+    <b-card  class="w-100 p-3 my-3 d-flex flex-column justify-content-between extra-css " >
             <b-card-title>{{team.name}}<br /><small>{{team.shortName}}</small></b-card-title>
             <b-card-sub-title >{{team.description}}</b-card-sub-title>
             <b-button variant="danger" class="mt-3">Excuse yourself</b-button>
@@ -31,6 +31,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.extra-css{
+    box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+}
 
 </style>
