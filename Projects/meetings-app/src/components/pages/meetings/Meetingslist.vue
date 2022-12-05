@@ -102,6 +102,7 @@ export default {
 }
 .extra-css{
     box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+    background-image: linear-gradient(to bottom, rgb(23,162,184), rgb(174, 195, 228));
 }
 
 </style>

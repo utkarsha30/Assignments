@@ -1,7 +1,7 @@
 <template>
   <div>
-    <app-menu />
-    <div class="container my-4">
+    <!-- <app-menu /> -->
+    <div >
     
     
         <router-view></router-view>
@@ -11,16 +11,11 @@
 
 <script>
 //import MeetingsCalendar from './components/pages/MeetingsCalendar.vue'
-import AppMenu from './components/AppMenu.vue'
+//import AppMenu from './components/AppMenu.vue'
 //import MeetingsList from './components/pages/meetings/Meetingslist.vue'
 
 export default {
-  name: 'App',
-  components: {
-   // MeetingsCalendar,
-    AppMenu,
-   // MeetingsList
-  }
+  name: 'App'
 }
 </script>
 

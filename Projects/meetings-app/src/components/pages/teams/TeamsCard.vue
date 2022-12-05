@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-card  class="w-100 p-3 my-3 d-flex flex-column justify-content-between extra-css " >
+  
+    <b-card  class=" p-3 my-3 d-flex  flex-column justify-content-between extra-css " >
             <b-card-title>{{team.name}}<br /><small>{{team.shortName}}</small></b-card-title>
             <b-card-sub-title >{{team.description}}</b-card-sub-title>
             <b-button variant="danger" class="mt-3">Excuse yourself</b-button>
@@ -16,7 +16,7 @@
                 <button class="btn btn-primary ml-2" >Add</button>
             </div>
         </b-card>
-  </div>
+ 
 </template>
 
 <script>

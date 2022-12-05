@@ -14,8 +14,8 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-text>Hello janedoe@gmail.com</b-nav-text>
-        <b-nav-item href="#" >Sign Out</b-nav-item>
+        <b-nav-text>Hello <span class="text-primary">{{this.$store.getters.userEmail}}!</span></b-nav-text>
+        <b-nav-item  @click.prevent="SignOut">Sign Out</b-nav-item>
         
       </b-navbar-nav>
     </b-collapse>
@@ -23,8 +23,28 @@
 </template>
 
 <script>
+import Vue from "vue";
 export default {
-    name:'AppMenu'
+    name:'AppMenu',
+    // computed:{
+    //   email(){
+    //     return this.$store.getters.userEmail;
+    //   }
+    // },
+    methods:{ 
+      SignOut(){
+       this.$store.dispatch('userLogout');
+       this.$router.push('/');
+       Vue.$toast.open({
+                        message: `Successfully LoggedOut !!`,
+                        type: "success",
+                        
+                    });
+        
+
+        
+      }
+    }
 }
 </script>
 

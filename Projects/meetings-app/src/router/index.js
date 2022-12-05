@@ -7,12 +7,24 @@ import MeetingsAdd from '@/components/pages/meetings/MeetingsAdd';
 import TeamsList from '@/components/pages/teams/TeamsList';
 import TeamsCard from '@/components/pages/teams/TeamsCard';
 import TeamsAdd from '@/components/pages/teams/TeamsAdd';
+import UserLogin from '@/components/pages/user/UserLogin';
+import UserRegister from '@/components/pages/user/UserRegister';
 const router = new Router({
     mode: 'history',
     routes : [
         {
+            name: 'user-login',
+            path: '/',
+            component: UserLogin
+        },
+        {
+            name:'user-register',
+            path: '/register',
+            component: UserRegister
+        },
+        {
             name : 'calendar',
-            path:'/',
+            path:'/calendar',
             component: MeetingsCalendar
         },
         {
