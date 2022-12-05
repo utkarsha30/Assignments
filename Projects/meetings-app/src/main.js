@@ -1,5 +1,6 @@
 import './init'
 import Vue from 'vue'
+import '@/service/configureAxios';
 import store from './store/index'
 import App from './App.vue'
 

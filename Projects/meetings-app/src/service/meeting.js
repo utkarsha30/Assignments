@@ -1,12 +1,6 @@
 import axios from 'axios';
-const key= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtzaGlyc2FnYXJAZ21haWwuY29tIiwidXNlcklkIjoiNjM2ZTRmM2Q4ZmM0NTYwMDE1OTA4Y2E4IiwiaWF0IjoxNjY5NzU1MjY5LCJleHAiOjE2Njk4NDE2Njl9.pUC0CsSNh8vTsoapSbvzBLS_lVYQgV053de3-OOM1XA';
 const getMeetings = async(dateSelect) =>{
-    const response = await axios.get(`https://mymeetingsapp.herokuapp.com/api/meetings?period=${dateSelect}`,
-    {
-        headers:{
-            Authorization : key
-        }
-    });
+    const response = await axios.get(`https://mymeetingsapp.herokuapp.com/api/meetings?period=${dateSelect}`);
     return response.data;
 }
 const postMeeting = async(meeting)=>{
@@ -34,7 +28,6 @@ const postMeeting = async(meeting)=>{
     
     {
         headers:{
-            Authorization : key,
             'Content-Type': 'application/json'  
         },
         
