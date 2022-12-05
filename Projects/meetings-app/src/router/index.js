@@ -30,18 +30,17 @@ const router = new Router({
         {
             name: 'meetings-main',
             path:'/meetings',
-            redirect: 'meetings-list',
             component: MeetingsMain,
             children :[
                 {
                     name: 'meetings-list',
-                    path: '',
+                    path: '/meetings',
                     redirect:'meetings-card',
                     component: MeetingsList,
                     children :[
                         {
                             name:'meetings-card',
-                            path:'',
+                            path:'/meetings',
                             component: MeetingsCard
                         } 
                     ]

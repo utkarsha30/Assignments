@@ -7,9 +7,9 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
        
-        <b-nav-item to="/">Calendar</b-nav-item>
+        <b-nav-item to="/calendar">Calendar</b-nav-item>
         <b-nav-item to="/meetings" >Meetings</b-nav-item>
-        <b-nav-item href="/teams" >Teams</b-nav-item>
+        <b-nav-item to="/teams" >Teams</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->

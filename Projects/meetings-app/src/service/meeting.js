@@ -25,7 +25,6 @@ const postMeeting = async(meeting)=>{
     console.log(meeting);
     const response = await axios.post(`https://mymeetingsapp.herokuapp.com/api/meetings`,
     meeting,
-    
     {
         headers:{
             'Content-Type': 'application/json'  

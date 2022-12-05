@@ -153,7 +153,8 @@
 </template>
 
 <script >
-import {postMeeting} from '@/service/meeting'
+import {postMeeting} from '@/service/meeting';
+import Vue from "vue";
 export default {
     name:'MeetingsAdd',
     props:{
@@ -196,6 +197,24 @@ export default {
             console.log(obj);
             const val = await postMeeting(obj);
             console.log(val);
+            if(val){
+                Vue.$toast.open({
+                        message: `Meeting '${val.name}' with id=${val._id} was added`,
+                        type: "success"
+                    });
+                    this.$router.push({
+                        name : 'meetings-main',
+                    });
+                    
+            }
+            else{
+                Vue.$toast.open({
+                        message: "Unsuccessful attempt",
+                        type: "error"
+                        
+                    });
+            }
+            
         }
         
     }

@@ -13,7 +13,7 @@
           <b-tab title="Filter/search Meetings" active>
             <meetings-list></meetings-list>  
           </b-tab>
-          <b-tab title="Add a meeting" >
+          <b-tab  title="Add a meeting" >
             <meetings-add></meetings-add>
         </b-tab>
         </b-tabs>
