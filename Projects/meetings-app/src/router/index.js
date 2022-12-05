@@ -34,20 +34,20 @@ const router = new Router({
             children :[
                 {
                     name: 'meetings-list',
-                    path: '/meetings',
+                    path: '',
                     redirect:'meetings-card',
                     component: MeetingsList,
                     children :[
                         {
                             name:'meetings-card',
-                            path:'/meetings',
+                            path:'',
                             component: MeetingsCard
                         } 
                     ]
                 },
                 {
                     name: 'meetings-add',
-                    path: '/meetings/add',
+                    path: '/add',
                     component: MeetingsAdd
                 }
             ]
