@@ -203,7 +203,7 @@ export default {
                         type: "success"
                     });
                     this.$router.push({
-                        name : 'meetings-main',
+                        path : '/meetings',
                     });
                     
             }
