@@ -2,7 +2,7 @@ import Router from 'vue-router';
 import MeetingsCalendar from '@/components/pages/calendar/MeetingsCalendar.vue';
 import MeetingsMain from '@/components/pages/meetings/MeetingsMain.vue';
 import MeetingsList from '@/components/pages/meetings/MeetingsList.vue';
-import MeetingsCard from '@/components/pages/meetings/MeetingsCard';
+// import MeetingsCard from '@/components/pages/meetings/MeetingsCard';
 import MeetingsAdd from '@/components/pages/meetings/MeetingsAdd';
 import TeamsList from '@/components/pages/teams/TeamsList';
 import TeamsCard from '@/components/pages/teams/TeamsCard';

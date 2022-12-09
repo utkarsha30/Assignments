@@ -11,10 +11,10 @@
         <!--- <b-nav-item  to="/meetings">Filter/search Meetings</b-nav-item>
           <b-nav-item   to="/meetings/add">Add a meeting</b-nav-item>-->
           <b-tab title="Filter/search Meetings" active>
-            <meetings-list></meetings-list>  
+            <router-view></router-view>
           </b-tab>
           <b-tab  title="Add a meeting" >
-            <meetings-add></meetings-add>
+            <router-view></router-view>
         </b-tab>
         </b-tabs>
       </div>
@@ -24,14 +24,14 @@
 
 <script>
 import AppMenu from '@/components/AppMenu.vue'
-import MeetingsList from '@/components/pages/meetings/MeetingsList.vue';
-import MeetingsAdd from './MeetingsAdd.vue';
+// import MeetingsList from '@/components/pages/meetings/MeetingsList.vue';
+// import MeetingsAdd from './MeetingsAdd.vue';
 export default {
     name:'MeetingsMain',
     components:{
       AppMenu,
-      MeetingsList,
-      MeetingsAdd
+      // MeetingsList,
+      // MeetingsAdd
 
     },
     data(){

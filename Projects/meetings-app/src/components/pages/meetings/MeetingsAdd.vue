@@ -203,7 +203,8 @@ export default {
                     type: "success"
                 });
                 this.$router.push({
-                    name : 'meetings-list',
+                    // name : 'meetings-list',
+                    path: '/meetings'
                 });
             }
             else{
