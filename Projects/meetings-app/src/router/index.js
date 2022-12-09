@@ -35,19 +35,19 @@ const router = new Router({
                 {
                     name: 'meetings-list',
                     path: '',
-                    redirect:'meetings-card',
+                    // redirect:'meetings-card',
                     component: MeetingsList,
-                    children :[
-                        {
-                            name:'meetings-card',
-                            path:'',
-                            component: MeetingsCard
-                        } 
-                    ]
+                    // children :[
+                    //     {
+                    //         name:'meetings-card',
+                    //         path:'',
+                    //         component: MeetingsCard
+                    //     } 
+                    // ]
                 },
                 {
                     name: 'meetings-add',
-                    path: '/add',
+                    path: 'add',
                     component: MeetingsAdd
                 }
             ]

@@ -199,13 +199,12 @@ export default {
             console.log(val);
             if(val){
                 Vue.$toast.open({
-                        message: `Meeting '${val.name}' with id=${val._id} was added`,
-                        type: "success"
-                    });
-                    this.$router.push({
-                        path : '/meetings',
-                    });
-                    
+                    message: `Meeting '${val.name}' with id=${val._id} was added`,
+                    type: "success"
+                });
+                this.$router.push({
+                    name : 'meetings-list',
+                });
             }
             else{
                 Vue.$toast.open({

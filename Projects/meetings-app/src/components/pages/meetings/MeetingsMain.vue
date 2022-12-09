@@ -7,7 +7,7 @@
         <hr />
       </div>
       <div>
-        <b-tabs content-class="mt-3">
+        <b-tabs content-class="mt-3" @activate-tab="activateTab">
         <!--- <b-nav-item  to="/meetings">Filter/search Meetings</b-nav-item>
           <b-nav-item   to="/meetings/add">Add a meeting</b-nav-item>-->
           <b-tab title="Filter/search Meetings" active>
@@ -37,6 +37,20 @@ export default {
     data(){
       return {
          
+      }
+    },
+    methods: {
+      activateTab( newTabIdx, prevTabIdx ) {
+        console.log( newTabIdx, prevTabIdx );
+        if( newTabIdx === 0 ) {
+          this.$router.push({
+            name: 'meetings-list'
+          });
+        } else {
+          this.$router.push({
+            name: 'meetings-add'
+          });
+        }
       }
     }
 
