@@ -33,7 +33,7 @@ export default {
        Vue.$toast.open({
                         message: `Successfully LoggedOut !!`,
                         type: "success",
-                        
+                        position : "bottom"
                     });
         
 

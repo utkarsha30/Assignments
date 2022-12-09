@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="col-sm-4"> 
-                <teams-add></teams-add>
+                <teams-add :updateTeams = "updateTeams"></teams-add>
             </div>
         </div>
   </div>
@@ -52,6 +52,11 @@ export default {
             teams:[],
             loading:false,
             error: null
+        }
+    },
+    methods:{
+        async updateTeams(team){
+            this.teams.push(team);
         }
     },
     async mounted(){

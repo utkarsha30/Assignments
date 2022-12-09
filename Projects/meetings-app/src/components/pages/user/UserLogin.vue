@@ -6,7 +6,7 @@
         <b-form-input
           id="userEmail"
           type="email"
-          v-model="email"
+          v-model.trim="email"
           placeholder="Enter Email"
           required
         ></b-form-input>
@@ -32,6 +32,9 @@
         </b-form-group>
       </b-form>
     </b-card>
+    For Easy asscess:
+    Email : kshirsagar@gmail.com <br/>
+    Password : Ukshirsagar@2
   </div>
 </template>
 
@@ -67,10 +70,13 @@ export default {
           password : this.password
         }
         const login = await this.$store.dispatch('userLogin',loginDetails);
+       
         if(login){
+       console.log("type",typeof(this.$store.state.auth.message));
           Vue.$toast.open({
-                        message: `${login.message}`,
+                        message: `${this.$store.state.auth.message}`,
                         type: "success",
+                        position : "bottom"
                         
                     });
                     this.$router.push('/calendar');

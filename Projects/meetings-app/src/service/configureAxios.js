@@ -3,7 +3,7 @@ import store from  '@/store';
 axios.interceptors.request.use(
     request => {
         const token = store.state.auth.token;
-        console.log(token);
+      //  console.log(token);
         if( token){
             request.headers['Authorization'] = token;
         }

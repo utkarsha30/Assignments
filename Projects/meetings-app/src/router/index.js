@@ -1,5 +1,5 @@
 import Router from 'vue-router';
-import MeetingsCalendar from '@/components/pages/MeetingsCalendar.vue';
+import MeetingsCalendar from '@/components/pages/calendar/MeetingsCalendar.vue';
 import MeetingsMain from '@/components/pages/meetings/MeetingsMain.vue';
 import MeetingsList from '@/components/pages/meetings/MeetingsList.vue';
 import MeetingsCard from '@/components/pages/meetings/MeetingsCard';
