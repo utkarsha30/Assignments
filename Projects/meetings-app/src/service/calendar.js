@@ -1,6 +1,6 @@
 import axios from 'axios';
-const getCalendar = async() =>{
-    const response = await axios.get(`https://mymeetingsapp.herokuapp.com/api/calendar?date=2022-11-13`);
+const getCalendar = async(selectedDate) =>{
+    const response = await axios.get(`https://mymeetingsapp.herokuapp.com/api/calendar?date=${selectedDate}`);
     return response.data;
 }
 export{

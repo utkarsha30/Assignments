@@ -7,11 +7,7 @@
         <hr />
         </div>
         <h3 class="subheading">View and edit teams you are part of</h3>
-        <div class="d-flex justify-content-center" v-if="loading">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-        </div>
+        <HourGlassLoading v-if="loading"></HourGlassLoading>
         <div class="alert alert-danger" role="alert" v-if="error">
                 {{ error.message }}
         </div> 
@@ -20,17 +16,17 @@
                 <div class="row" v-if="!loading && !error && teams.length !== 0">
                     <div
                         class="col-12 col-sm-12 col-lg-6 d-flex "
-                        v-for="team in teams"
+                        v-for="(team,index) in teams"
                         :key="team._id">
 
-                            <router-view :team="team"></router-view>
+                            <router-view :team="team" :index="index" :members="members" :updateAfterExcuse="updateAfterExcuse"></router-view>
                         
                     </div>
                     <!--col-sm-8 col-sm-4  -->
                 </div>
             </div>
-            <div class="col-sm-4"> 
-                <teams-add :updateTeams = "updateTeams"></teams-add>
+            <div class="col-sm-4" v-if="!loading && !error"> 
+                <teams-add :updateTeams = "updateTeams" :members="members"></teams-add>
             </div>
         </div>
   </div>
@@ -40,23 +36,32 @@
 <script>
 import AppMenu from '@/components/AppMenu.vue'
 import {getTeams} from '@/service/teams'
+import {registeredUsers} from '@/service/user';
 import TeamsAdd from './TeamsAdd.vue';
+import HourGlassLoading from "../HourGlassLoading.vue";
+
 
 export default {
-  components: { 
+  components: {
     AppMenu,
-    TeamsAdd },
+    TeamsAdd,
+    HourGlassLoading
+},
     name:'TeamsList',
     data(){
         return {
             teams:[],
             loading:false,
-            error: null
+            error: null,
+            members:[]
         }
     },
     methods:{
         async updateTeams(team){
             this.teams.push(team);
+        },
+        async updateAfterExcuse(team,index){
+            this.teams.splice(index,1);
         }
     },
     async mounted(){
@@ -64,6 +69,8 @@ export default {
         try{
             const teams = await getTeams();
             this.teams = teams;
+            const members = await registeredUsers();
+                this.members = members;
         }
         catch(error){
             this.error = error;

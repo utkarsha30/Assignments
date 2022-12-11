@@ -16,7 +16,18 @@ const postMeeting = async(meeting)=>{
     });
     return response.data;
 }
+const excuseFromMeeting = async(meetingId)=>{
+    const response = await axios.patch(`https://mymeetingsapp.herokuapp.com/api/meetings/${meetingId}?action=remove_attendee`,
+    {
+        headers:{
+            'Content-Type': 'application/json'  
+        },
+        
+    });
+    return response.data;
+}
 export{
     getMeetings,
-    postMeeting
+    postMeeting,
+    excuseFromMeeting
 };

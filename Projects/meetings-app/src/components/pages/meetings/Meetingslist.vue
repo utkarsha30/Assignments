@@ -24,18 +24,16 @@
       <h2>Meetings matching Search Criteria</h2>
       <hr />
     </div>
-    <div class="d-flex justify-content-center" v-if="loading">
-        <div class="spinner-border text-primary" role="status">
-                <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+  
+    <hour-glass-loading v-if="loading"></hour-glass-loading>
+    
     <div class="alert alert-danger" role="alert" v-if="error">
         {{error.message}}
     </div>
 
     <div v-if="!loading && !error && meetings.length !== 0">
-        <div v-for="meeting in meetings" :key="meeting._id">
-            <meetings-card :meeting="meeting"> </meetings-card>
+        <div v-for="(meeting,index) in meetings" :key="meeting._id">
+            <meetings-card :meeting="meeting" :index="index" :updateMeetings="updateMeetings" :members="members"> </meetings-card>
         
         </div>
     </div>
@@ -46,26 +44,33 @@
 <script>
 import {getMeetings} from '@/service/meeting'
 import MeetingsCard from './MeetingsCard.vue'
+import {registeredUsers} from '@/service/user';
+import HourGlassLoading from '../HourGlassLoading.vue';
 //import MeetingsListByDate from '@/components/pages/meetings/MeetingsListByDate.vue'
 export default {
     name: 'MeetingsList',
      components:{
-       MeetingsCard 
+       MeetingsCard,
+          HourGlassLoading 
       },
     data(){
         return {
             meetings:[],
             loading:false,
             error: null,
-            dateSelect: 'all'
+            dateSelect: 'all',
+            members:[]
         }
     },
     methods: {
        async filter(dateSelect){
+            this.loading = true;
             console.log(dateSelect);
             try{
                 const meetings = await getMeetings(dateSelect);
                 this.meetings = meetings;
+                const members = await registeredUsers();
+                this.members = members;
             }
             catch(error){
                 this.error = error;
@@ -74,9 +79,13 @@ export default {
                 this.loading = false;
             }
        },
-      /* async updateMeeting( meeting ) {
-            this.meetings.push( meeting );
-        }*/
+      async updateMeetings( meeting,index) {
+       // const index = this.meetings.indexOf(meeting._id);
+        console.log("Index",index);
+            const res=this.meetings.splice( index,1 );
+            console.log(res);
+            // console.log("POPPED");
+        }
     },
     async mounted(){
         
@@ -85,6 +94,9 @@ export default {
         try{
             const meetings = await getMeetings(this.dateSelect);
             this.meetings = meetings;
+            const members = await registeredUsers();
+                this.members = members;
+               // console.log(typeof(this.members));
         }
         catch(error){
             this.error = error;

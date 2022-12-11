@@ -15,7 +15,18 @@ const postTeams = async(teamsDetails)=>{
     });
     return response.data;
 }
+const excuseFromTeams = async(teamId)=>{
+    const response = await axios.patch(`https://mymeetingsapp.herokuapp.com/api/teams/${teamId}?action=remove_member`,
+    {
+        headers:{
+            'Content-Type': 'application/json'  
+        },
+        
+    });
+    return response.data;
+}
 export{
     getTeams,
-    postTeams
+    postTeams,
+    excuseFromTeams
 }

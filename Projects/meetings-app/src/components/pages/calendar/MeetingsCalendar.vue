@@ -2,7 +2,7 @@
   <div>
     <app-menu />
   <div>
-    <button @click="displayCalendar">Click</button> 
+    <button >Click</button> 
   </div>
     
     <div class="container my-4">
@@ -13,11 +13,11 @@
         <div class="d-flex row">
            <div class="col">
             <div class="mr-auto p-2 "><h3>{{this.displayDate}}</h3></div>
-            <div class="  mr-auto p-2">{{this.displayDay}}</div>
+            <div class="  mr-auto p-2"><h3 class="subheading">{{this.displayDay}}</h3></div>
            </div> 
             <div class="p-2 "><input type="date" class="form-control" @change.prevent="selectedDate" value="date" id="date-select" v-model="select" /></div>
         </div>
-        
+      
       <div class="calendar"> <!-- position: relative-->
          
         <div class="calendar-hours">
@@ -120,7 +120,11 @@
 
         </div>
        
-        <div class="meeting" :style="{ height: this.height + `px`, top: this.top+ `px` }"></div>
+        <div class="meeting "  v-for="calendar in calendars" :key="calendar.name" :style="{ height: calculateHeight(calendar) + `px`, top: calculateTop(calendar)+ `px` }">
+            <span class="ml-2 pt-2">{{calendar.name}}</span>
+            <hr/>
+            <p class="overflow-auto ml-2 pb-3"><span class="font-weight-bold">Attendees:</span><span v-for="attendee in calendar.attendees" :key="attendee.userId">  {{attendee.email}}</span></p>
+        </div>
 </div>
   </div>
 </template>
@@ -144,7 +148,7 @@ export default {
         top:null,
         bottom:null,
         height:null,
-        calendarDetails:[],
+        calendars:[],
         days : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
         months :['January', 'February','March','April','May', 'June', 'July','August', 'September', 'October','November','December']
         //loading:false,
@@ -153,38 +157,47 @@ export default {
   },
   methods:{
     calculateTop(calendar){
-        const hr= 80+(60* calendar.startTime.hours);
+        const hr= 306+(60* calendar.startTime.hours);
         const min = (calendar.startTime.minutes*0.833);
-       // console.log("top",hr+min);
+        console.log("top",hr+min);
         return (hr+min);
     },
     calculateBottom (calendar){
-        const hr= 80+(60* calendar.endTime.hours);
+        const hr= 306+(60* calendar.endTime.hours);
         const min = (calendar.endTime.minutes*0.833);
         return (hr+min);
     },
-    calculateHeight(top,bottom){
-        return bottom-top;
+    calculateHeight(calendar){
+        const topHr= 306+(60* calendar.startTime.hours);
+        const topMin = (calendar.startTime.minutes*0.833);
+        const topVal = topHr+topMin;
+        const bottomHr= 306+(60* calendar.endTime.hours);
+        const bottomMin = (calendar.endTime.minutes*0.833);
+        const bottomVal = bottomHr+bottomMin;
+        const totalHeight = bottomVal-topVal;
+        console.log("Height",totalHeight);
+        return totalHeight;
     },
-    async displayCalendar(){
-        try{
-            const calendarDetails = await getCalendar();
-            this.calendarDetails = calendarDetails;
-            console.log(calendarDetails);
-            console.log(typeof(calendarDetails[0].startTime.hours));
-            console.log("TOp");
-             this.top = this.calculateTop(calendarDetails[0]);
-             console.log(this.top);
-            this.bottom = this.calculateBottom(calendarDetails[0]);
-            console.log(this.bottom);
-            this.height = this.calculateHeight(this.top,this.bottom);
-            console.log(this.height);
+    // async displayCalendar(){
+    //     try{
+            
+    //         const calendarDetails = await getCalendar();
+    //         this.calendarDetails = calendarDetails;
+    //         console.log(calendarDetails);
+    //         console.log(typeof(calendarDetails[0].startTime.hours));
+    //         console.log("TOp");
+    //          this.top = this.calculateTop(calendarDetails[0]);
+    //          console.log(this.top);
+    //         this.bottom = this.calculateBottom(calendarDetails[0]);
+    //         console.log(this.bottom);
+    //         this.height = this.calculateHeight(this.top,this.bottom);
+    //         console.log(this.height);
            
-        }
-        catch(error){
-            this.error = error;
-        }
-    },
+    //     }
+    //     catch(error){
+    //         this.error = error;
+    //     }
+    // },
     //displays left side date
     defaultDateDisplay (dated){
     const dd = dated.getDate();
@@ -208,32 +221,51 @@ export default {
         else{
             ddd= d;
         }
+        
    console.log(ddd);
-    const mm = dated.getMonth()+1;
-    console.log(mm);
+    const m = dated.getMonth()+1;
+   // console.log(mm);
+    if(m<=9)
+        {
+            var mm = `0${d}`;
+            console.log("executed",ddd);
+        }
+        else{
+            mm= m;
+        }
     const yyy = dated.getFullYear();
     this.select = `${yyy}-${mm}-${ddd}`
     },
     //on change for right date 
-    selectedDate(){
+    async selectedDate(){
         console.log(typeof(this.select));
-       
-    let newDate =new Date(this.select);
-    console.log(newDate);
-   const d= newDate.getDate();
-   if(d<=9)
-   {
-    var dd = `0${d}`;
-   }
-   else{
-    dd= d;
-   }
-   console.log(dd);
-    const mm = newDate.getMonth()+1;
-    console.log(mm);
-    const yyy = newDate.getFullYear();
-    this.select = `${yyy}-${mm}-${dd}`;
-    this.defaultDateDisplay(newDate);
+            
+        let newDate =new Date(this.select);
+        console.log(newDate);
+        const d= newDate.getDate();
+        if(d<=9)
+        {
+            var dd = `0${d}`;
+        }
+        else{
+            dd= d;
+        }
+        console.log(dd);
+            const m = newDate.getMonth()+1;
+            if(m<=9)
+                {
+                    var mm = `0${d}`;
+                //  console.log("executed",ddd);
+                }
+                else{
+                    mm= m;
+                }
+            const yyy = newDate.getFullYear();
+            this.select = `${yyy}-${mm}-${dd}`;
+            console.log("Type of Date",typeof(this.select));
+            this.defaultDateDisplay(newDate);
+            this.calendars = await getCalendar(this.select);
+            console.log(this.calendars);
   //  return finalDate;
     }
 
@@ -273,10 +305,17 @@ export default {
                 background-color: lightgray;
                 left: 150px;
                 right: 100px;
+                padding-top: 2px;
+                padding-bottom: 3px;
+               
             }
             .meeting-1 {
                 /* 80-130 (50)first 10px cha gap next(140-190) next(200-250)*/
                 top: 260px;
                 height: 50px;
             }
+            .subheading{
+                color: rgb(159,165,170) 
+            }
+
 </style>

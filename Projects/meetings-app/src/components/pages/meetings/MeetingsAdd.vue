@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-card class="extra-css"  bg-variant="info"  text-variant="black">
+    <hour-glass-loading v-if="loading"></hour-glass-loading>
+    <b-card v-if="!loading" class="extra-css"  bg-variant="info"  text-variant="black">
         <b-card-title  class="title-font-color">Add a Meeting</b-card-title>
          <hr />
          <div class="card-body">
@@ -154,9 +155,13 @@
 
 <script >
 import {postMeeting} from '@/service/meeting';
+import HourGlassLoading from "../HourGlassLoading.vue";
 import Vue from "vue";
 export default {
     name:'MeetingsAdd',
+    components:{
+        HourGlassLoading
+    },
     props:{
         updateMeeting:{
             type:Function,
@@ -172,7 +177,9 @@ export default {
             endTimeMin:0,
             meetingDescription:null,
             meetingName:null,
-            meetingAttendee: null
+            meetingAttendee: null,
+            loading:false,
+            error: null,
         }
     },
     methods: {
@@ -194,10 +201,12 @@ export default {
                 attendees:arrayAttendees
 
             }
+            this.loading = true;
             console.log(obj);
-            const val = await postMeeting(obj);
-            console.log(val);
-            if(val){
+            
+            try{
+                const val = await postMeeting(obj);
+                console.log(val);
                 Vue.$toast.open({
                         message: `Meeting '${val.name}' with id=${val._id} was added`,
                         type: "success"
@@ -207,12 +216,15 @@ export default {
                     });
                     
             }
-            else{
+            catch(error){
                 Vue.$toast.open({
-                        message: "Unsuccessful attempt",
+                        message: error.message,
                         type: "error"
                         
                     });
+            }
+            finally{
+                this.loading = false;
             }
             
         }

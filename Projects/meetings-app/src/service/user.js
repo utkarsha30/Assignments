@@ -9,9 +9,14 @@ const userLogin = async(credentials)=>{
         
     });
    // console.log(response.data); 
+    return response.data;   
+}
+const registeredUsers= async()=>{
+    const response = await axios.get(`https://mymeetingsapp.herokuapp.com/api/users`);
+    console.log(typeof(response.data));
     return response.data;
-    
 }
 export{
-    userLogin
+    userLogin,
+    registeredUsers
 }

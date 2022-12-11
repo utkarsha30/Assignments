@@ -35,9 +35,12 @@
         class="w-50 mr-3"
           id="teamMembers"
           v-model="selectedMember"
-          :options="teams"
+          
           required
-        ></b-form-select>
+        >
+        <option selected value="">Select Members</option>
+        <option v-for="member in members" :key="member.email">{{member.email}}</option>
+      </b-form-select>
         <b-button type="submit" @click.prevent="addMemberToTeam(selectedMember)" variant="primary">Add</b-button>
       </div>
 
@@ -56,6 +59,10 @@ import Vue from "vue";
 export default {
     name: 'TeamsAdd',
     props:{
+      members:{
+            type:Array,
+            required: true
+        },
       updateTeams : {
             type: Function,
             default: () => {}

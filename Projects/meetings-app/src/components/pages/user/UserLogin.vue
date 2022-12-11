@@ -1,6 +1,7 @@
 <template>
   <div class="container my-5 "> 
-    <b-card title="Sign in" class="card mx-auto  text-center p-4">
+    <HourGlassLoading v-if="loading"></HourGlassLoading>
+    <b-card v-if="!loading" title="Sign in" class="card mx-auto  text-center p-4">
       <b-form @submit.prevent="onSubmit">
         <b-form-group class="mb-4 mt-4">
         <b-form-input
@@ -32,21 +33,30 @@
         </b-form-group>
       </b-form>
     </b-card>
-    For Easy asscess:
+    <div v-if="!loading"> 
+      For Easy asscess:
     Email : kshirsagar@gmail.com <br/>
     Password : Ukshirsagar@2
+    </div>
+    
   </div>
 </template>
 
 <script>
 import Vue from "vue";
+import HourGlassLoading from "../HourGlassLoading.vue";
 //import {userLogin} from '@/service/user'
 export default {
     name: 'UserLogin',
+    components:{
+      HourGlassLoading
+    },
     data(){
         return{
           email: '',
-          password: ''
+          password: '',
+          loading:false,
+            error: null,
         }
     },
     methods:{
@@ -69,10 +79,13 @@ export default {
           email : this.email,
           password : this.password
         }
-        const login = await this.$store.dispatch('userLogin',loginDetails);
-       
-        if(login){
-       console.log("type",typeof(this.$store.state.auth.message));
+        this.loading = true;
+      
+        try{
+          const login = await this.$store.dispatch('userLogin',loginDetails);
+        console.log("Login",login);
+         console.log("type",typeof(this.$store.state.auth.message));
+     
           Vue.$toast.open({
                         message: `${this.$store.state.auth.message}`,
                         type: "success",
@@ -82,12 +95,15 @@ export default {
                     this.$router.push('/calendar');
 
         }
-        else{
+        catch(error){ 
           Vue.$toast.open({
-        message: "Unsuccessful attempt",
+        message: error.message,
         type: "error",
         position : "bottom"
         });
+        }
+        finally{
+          this.loading = false;
         }
       }
     }
@@ -109,6 +125,9 @@ export default {
   text-decoration:none;
   font-weight: bold;
 } 
+
+/* for loading  */
+
 
 
 </style>
