@@ -1,9 +1,7 @@
 <template>
   <div>
     <app-menu />
-  <div>
-    <button >Click</button> 
-  </div>
+ 
     
     <div class="container my-4">
         <div class="body-heading">
@@ -120,10 +118,9 @@
 
         </div>
        
-        <div class="meeting "  v-for="calendar in calendars" :key="calendar.name" :style="{ height: calculateHeight(calendar) + `px`, top: calculateTop(calendar)+ `px` }">
-            <span class="ml-2 pt-2">{{calendar.name}}</span>
-            <hr/>
-            <p class="overflow-auto ml-2 pb-3"><span class="font-weight-bold">Attendees:</span><span v-for="attendee in calendar.attendees" :key="attendee.userId">  {{attendee.email}}</span></p>
+        <div class="meeting overflow-auto "  v-for="calendar in calendars" :key="calendar.name" :style="{ height: calculateHeight(calendar) + `px`, top: calculateTop(calendar)+ `px` }">
+            <span class=" font-weight-bold">{{calendar.name}}</span><hr class="m-1"/>
+            <p ><span class="font-weight-bold">Attendees:</span><span v-for="attendee in calendar.attendees" :key="attendee.userId">  {{attendee.email}}</span></p>
         </div>
 </div>
   </div>
@@ -157,21 +154,17 @@ export default {
   },
   methods:{
     calculateTop(calendar){
-        const hr= 306+(60* calendar.startTime.hours);
+        const hr= 276+(60* calendar.startTime.hours);
         const min = (calendar.startTime.minutes*0.833);
         console.log("top",hr+min);
         return (hr+min);
     },
-    calculateBottom (calendar){
-        const hr= 306+(60* calendar.endTime.hours);
-        const min = (calendar.endTime.minutes*0.833);
-        return (hr+min);
-    },
+    
     calculateHeight(calendar){
-        const topHr= 306+(60* calendar.startTime.hours);
+        const topHr= 276+(60* calendar.startTime.hours);
         const topMin = (calendar.startTime.minutes*0.833);
         const topVal = topHr+topMin;
-        const bottomHr= 306+(60* calendar.endTime.hours);
+        const bottomHr= 276+(60* calendar.endTime.hours);
         const bottomMin = (calendar.endTime.minutes*0.833);
         const bottomVal = bottomHr+bottomMin;
         const totalHeight = bottomVal-topVal;
@@ -210,7 +203,7 @@ export default {
     this.displayDate =finalDate;
     },
     
-    defaultDate(dated){
+    async defaultDate(dated){
         console.log(dated);
         const d= dated.getDate();
         if(d<=9)
@@ -234,7 +227,8 @@ export default {
             mm= m;
         }
     const yyy = dated.getFullYear();
-    this.select = `${yyy}-${mm}-${ddd}`
+    this.select = `${yyy}-${mm}-${ddd}`;
+    this.calendars = await getCalendar(this.select);
     },
     //on change for right date 
     async selectedDate(){
@@ -271,9 +265,11 @@ export default {
 
   },
   
-    created(){
+  created(){
         this.defaultDateDisplay(this.calendarDate);
         this.defaultDate(this.calendarDate);
+       
+        
         
     }
 }
@@ -297,25 +293,19 @@ export default {
             .calendar-hour-box {
                 flex-basis: auto;
                 flex-grow: 1;
-                background-color: navy;
+                background-color: rgb(23,162,184);
             }
 
             .meeting {
                 position: absolute;
-                background-color: lightgray;
-                left: 150px;
-                right: 100px;
-                padding-top: 2px;
-                padding-bottom: 3px;
+                background-color: rgba(255, 255, 255, 0.733);
+                border: 1px solid rgb(164, 161, 161);
+                left: 175px;
+                right: 125px;
+                 padding: 5px;
                
-            }
-            .meeting-1 {
-                /* 80-130 (50)first 10px cha gap next(140-190) next(200-250)*/
-                top: 260px;
-                height: 50px;
             }
             .subheading{
                 color: rgb(159,165,170) 
             }
-
 </style>
