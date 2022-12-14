@@ -25,8 +25,20 @@ const excuseFromTeams = async(teamId)=>{
     });
     return response.data;
 }
+const addAttendee = async(teamId,attendeeId)=>{
+    console.log(teamId,attendeeId);
+    const response = await axios.patch(`https://mymeetingsapp.herokuapp.com/api/teams/${teamId}?action=add_member&userId=${attendeeId}`,
+    {
+        headers:{
+            'Content-Type': 'application/json'  
+        },
+        
+    });
+    return response.data;
+}
 export{
     getTeams,
     postTeams,
-    excuseFromTeams
+    excuseFromTeams,
+    addAttendee
 }
