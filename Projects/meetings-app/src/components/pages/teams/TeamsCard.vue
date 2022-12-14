@@ -68,7 +68,7 @@ export default {
                         position : "bottom"
                     });
           } 
-         // this.selectedMember=''
+          this.selectedMember=''
         },
         async excuse(id){
             const remove = await excuseFromTeams(id);
