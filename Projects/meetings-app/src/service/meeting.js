@@ -26,8 +26,20 @@ const excuseFromMeeting = async(meetingId)=>{
     });
     return response.data;
 }
+const addAttendee = async(meetingId,attendeeId)=>{
+   
+    const response = await axios.patch(`https://mymeetingsapp.herokuapp.com/api/meetings/${meetingId}?action=add_attendee&userId=${attendeeId}`,
+    {
+        headers:{
+            'Content-Type': 'application/json'  
+        },
+        
+    });
+    return response.data;
+}
 export{
     getMeetings,
     postMeeting,
-    excuseFromMeeting
+    excuseFromMeeting,
+    addAttendee
 };

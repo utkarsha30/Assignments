@@ -55,8 +55,8 @@ export default {
           {
             Vue.$toast.open({
                         message: "Member already exist",
-                        type: "error"
-                        
+                        type: "error",
+                        position : "bottom"    
                     });  
           } 
           else{
@@ -65,10 +65,10 @@ export default {
             Vue.$toast.open({
                         message: `Member successfully Added!'`,
                         type: "success",
-                        position : "top-right"
+                        position : "bottom"
                     });
           } 
-          this.selectedMember=''
+         // this.selectedMember=''
         },
         async excuse(id){
             const remove = await excuseFromTeams(id);
@@ -77,15 +77,15 @@ export default {
                 Vue.$toast.open({
                         message: `Excused from Team '${remove.name}'`,
                         type: "success",
-                        position : "top-right"
+                        position : "bottom"
                     });
             }
             else
             {
                 Vue.$toast.open({
                         message: "Unsuccessful add attempt",
-                        type: "error"
-                        
+                        type: "error",
+                        position : "bottom"
                     });
             }
         }
