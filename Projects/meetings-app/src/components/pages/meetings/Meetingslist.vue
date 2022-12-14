@@ -15,9 +15,9 @@
             </div>
             <div class="form-group">
                 <label for="meetingsDescription"  class="blockquote" >Search for</label>
-                <textarea class="form-control" name="meetingsDescription" id="meetingsDescription" placeholder="Search using words which describe the meeting"></textarea>
+                <textarea class="form-control" name="meetingsDescription" id="meetingsDescription" v-model="textSelect" placeholder="Search using words which describe the meeting"></textarea>
             </div>
-            <button type="submit" @click="filter(dateSelect)" class="btn btn-primary">Search</button>
+            <button type="submit" @click="filter(dateSelect,textSelect)" class="btn btn-primary">Search</button>
      </div>
   </b-card>
   <div class="body-heading mt-4">
@@ -59,15 +59,16 @@ export default {
             loading:false,
             error: null,
             dateSelect: 'all',
+            textSelect:'',
             members:[]
         }
     },
     methods: {
-       async filter(dateSelect){
+       async filter(dateSelect,textSelect){
             this.loading = true;
             console.log(dateSelect);
             try{
-                const meetings = await getMeetings(dateSelect);
+                const meetings = await getMeetings(dateSelect,textSelect);
                 this.meetings = meetings;
                 const members = await registeredUsers();
                 this.members = members;
@@ -92,7 +93,7 @@ export default {
         console.log(this.dateSelect);
         this.loading = true;
         try{
-            const meetings = await getMeetings(this.dateSelect);
+            const meetings = await getMeetings(this.dateSelect,this.textSelect);
             this.meetings = meetings;
             const members = await registeredUsers();
                 this.members = members;

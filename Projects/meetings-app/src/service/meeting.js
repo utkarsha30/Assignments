@@ -1,6 +1,6 @@
 import axios from 'axios';
-const getMeetings = async(dateSelect) =>{
-    const response = await axios.get(`https://mymeetingsapp.herokuapp.com/api/meetings?period=${dateSelect}`);
+const getMeetings = async(dateSelect,textSelect) =>{
+    const response = await axios.get(`https://mymeetingsapp.herokuapp.com/api/meetings?period=${dateSelect}&search=${textSelect}`);
     return response.data;
 }
 const postMeeting = async(meeting)=>{
