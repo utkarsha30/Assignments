@@ -154,17 +154,17 @@ export default {
   },
   methods:{
     calculateTop(calendar){
-        const hr= 276+(60* calendar.startTime.hours);
+        const hr= 278+(60* calendar.startTime.hours);
         const min = (calendar.startTime.minutes*0.833);
         console.log("top",hr+min);
         return (hr+min);
     },
     
     calculateHeight(calendar){
-        const topHr= 276+(60* calendar.startTime.hours);
+        const topHr= 278+(60* calendar.startTime.hours);
         const topMin = (calendar.startTime.minutes*0.833);
         const topVal = topHr+topMin;
-        const bottomHr= 276+(60* calendar.endTime.hours);
+        const bottomHr= 278+(60* calendar.endTime.hours);
         const bottomMin = (calendar.endTime.minutes*0.833);
         const bottomVal = bottomHr+bottomMin;
         const totalHeight = bottomVal-topVal;

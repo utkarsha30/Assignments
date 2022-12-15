@@ -7,20 +7,57 @@
         <b-form-input
           id="userEmail"
           type="email"
-          v-model.trim="email"
+          v-model.trim="$v.email.$model"
           placeholder="Enter Email"
-          required
-        ></b-form-input>
+          @blur="$v.email.$touch()"
+          :class="{
+            'is-invalid': shouldAppendErrorClass($v.email),
+            'is-valid': shouldAppendValidClass($v.email)
+          }"
+        >
+        </b-form-input>
+          <div v-if="$v.email.$error">
+            <div v-if="!$v.email.required" class="error-message">
+              <small class="float-left text-danger">The email field is required</small>
+            </div>
+            <div v-if="!$v.email.email" class="error-message">
+              <small class="float-left text-danger">Invalid email address</small>
+            </div>
+        </div>
         </b-form-group>
+
         <b-form-group class="mb-4">
         <b-form-input
           id="userPassword"
           type="password"
-          v-model.trim="password"
+          v-model.trim="$v.password.$model"
           placeholder="Enter Password"
-          required
+          @blur="$v.password.$touch()"
+          :class="{
+            'is-invalid': shouldAppendErrorClass($v.password),
+            'is-valid': shouldAppendValidClass($v.password)
+          }"
         ></b-form-input>
-                        
+        <div v-if="$v.password.$error">
+          <div v-if="!$v.password.required" class="error-message">
+            <small class="float-left text-danger">The password field is required</small>
+          </div>
+          <div v-if="!$v.password.minLength" class="error-message">
+            <small class="float-left text-danger">The password must have at least 8 characters</small>
+          </div>
+          <div v-if="!$v.password.containsUppercase" class="error-message">
+            <small class="float-left text-danger">The password must have at least 1 uppercase character</small>
+          </div>
+          <div v-if="!$v.password.containsLowercase" class="error-message">
+            <small class="float-left text-danger">The password must have at least 1 lowercase character</small>
+          </div>
+          <div v-if="!$v.password.containsNumber" class="error-message">
+            <small class="float-left text-danger">The password must have at least 1 digit</small>
+          </div>
+          <div v-if="!$v.password.containsSpecial" class="error-message">
+            <small class="float-left text-danger">The password must have at least 1 special character</small>
+          </div>     
+        </div>         
         </b-form-group>
         <b-form-group class="mb-4">
           <b-card-text class="text-justify"><b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox></b-card-text>
@@ -33,10 +70,16 @@
         </b-form-group>
       </b-form>
     </b-card>
-    <div v-if="!loading"> 
-      For Easy asscess:
-    Email : kshirsagar@gmail.com <br/>
-    Password : Ukshirsagar@2
+    <div v-if="!loading" class="text-muted container my-5 "> 
+      <div>
+        <small><strong>NOTE</strong></small>
+      </div>
+      <div>
+        <small>Email : kshirsagar@gmail.com</small>
+      </div>
+      <div>
+        <small> Password : Ukshirsagar@2</small>
+      </div>
     </div>
     
   </div>
@@ -45,6 +88,7 @@
 <script>
 import Vue from "vue";
 import HourGlassLoading from "../HourGlassLoading.vue";
+import { email, required, minLength } from 'vuelidate/lib/validators';
 //import {userLogin} from '@/service/user'
 export default {
     name: 'UserLogin',
@@ -59,21 +103,30 @@ export default {
             error: null,
         }
     },
+    validations: {
+                email: {
+                    email,
+                    required
+                },
+                password: {
+                    required,
+                    minLength: minLength( 8 ),
+                    // https://stackoverflow.com/questions/61176720/how-to-validate-password-with-vuelidate
+                    containsUppercase: function(value) {
+                        return /[A-Z]/.test(value)
+                    },
+                    containsLowercase: function(value) {
+                        return /[a-z]/.test(value)
+                    },
+                    containsNumber: function(value) {
+                        return /[0-9]/.test(value)
+                    },
+                    containsSpecial: function(value) {
+                        return /[#?!@$%^&*-]/.test(value)
+                    }
+                }
+        },
     methods:{
-      // notify(){
-      //   Sucess
-      //   Vue.$toast.open({
-      //                   message: `Successfully logged in!!`,
-      //                   type: "success",
-      //                   position : "bottom"
-      //               });
-     
-      //   for error
-      //   Vue.$toast.open({
-      //   message: 'Something went wrong!',
-      //   type: 'error',
-      //   });
-      // }
       async onSubmit(){
        const loginDetails={
           email : this.email,
@@ -105,7 +158,13 @@ export default {
         finally{
           this.loading = false;
         }
-      }
+      },
+      shouldAppendValidClass( field ) {
+                return !field.$invalid && field.$model && field.$dirty;
+            },
+            shouldAppendErrorClass( field ) {
+                return field.$error;
+            }
     }
 }
 </script>
