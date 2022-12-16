@@ -54,11 +54,11 @@
         </div>
         <div class="main-header">
             <ul class="main-header-block">
-                <li><h2>12 September 2020</h2></li>
-                <li><h3 class="subheading">Saturday</h3></li>
+                <li><h2 id="date-picker"></h2></li>
+                <li><h3 class="subheading" id="day-picker"></h3></li>
             </ul>
             <div class="date-icon ">
-                <input type="date" class="form-control" value="date" />
+                <input type="date" class="form-control" value="date" id="date-select"  />
             </div>
         </div>
         <div class="calendar"> <!-- position: relative-->
@@ -157,52 +157,24 @@
             <div class="calendar-hours">
                 <span class="calendar-hour-value">23</span>
                 <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">24</span>
-                <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">25</span>
-                <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">26</span>
-                <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">27</span>
-                <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">28</span>
-                <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">29</span>
-                <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">30</span>
-                <div class="calendar-hour-box"></div>
-            </div>
-            <div class="calendar-hours">
-                <span class="calendar-hour-value">31</span>
-                <div class="calendar-hour-box"></div>
-            </div>
+            </div>         
         </div>
         <div class="meeting meeting-1">
             <span class="text-strong">Project kickoff</span>
             <hr>
             <p>Attendees: mark@example.com jane@example.com</p>
         </div> 
-        <div class="meeting meeting-2">
-            <span class="text-strong">AWS Architecture</span>
-            <hr>
-            <p>Attendees: john@example.com jane@example.com</p>
+        <div class="meeting meeting-2" id="meeting-3">
+            
         </div>
+    </div>
+    <div id="utk">
+
     </div>
     <!---JS-->
     <script src="/js/nav.js"></script>
+    <script src="/js/calendar.js" type="module"></script>
+        <script src="/js/exp.js" type="module"></script>
+    
 </body>
 </html>
